@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import * as apiCalls from '../apiCalls'
+import * as firebase from 'firebase'
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,12 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    await this.fetchAllArticles()
+    console.log(firebase.database())
+    firebase.database().ref('mockData/').set({
+      seamus: 'garbage',
+      garbage: 'seamus'
+    })
+    // await this.fetchAllArticles()
   }
 
   fetchAllArticles = async () => {
@@ -39,6 +45,19 @@ class App extends Component {
       </div>
     );
   }
+}
+
+const config = {
+  apiKey: "AIzaSyDiBMqPsE5G7LQrVzd0SNdf_64Zi9zRgfI",
+  authDomain: "the-punchbowl.firebaseapp.com",
+  databaseURL: "https://the-punchbowl.firebaseio.com",
+  projectId: "the-punchbowl",
+  storageBucket: "the-punchbowl.appspot.com",
+  messagingSenderId: "126203247142"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(config)
 }
 
 export default App;
