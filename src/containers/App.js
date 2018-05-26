@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      domains: ['npr.org', 'nytimes.com', 'breitbart.com'],
+      domains: ['npr.org', 'nytimes.com', 'nbcnews.com', 'theatlantic.com', 'ap.org', 'c-span.org', 'foxnews.com', 'wsj.com', 'cato.org', 'breitbart.com'],
       matches: [],
       articles: [],
     }
@@ -16,10 +16,10 @@ class App extends Component {
 
   async componentDidMount() {
     console.log(firebase.database())
-    firebase.database().ref('mockData/').set({
-      seamus: 'garbage',
-      garbage: 'seamus'
-    })
+    // firebase.database().ref('mockData/').set({
+    //   seamus: 'garbage',
+    //   garbage: 'seamus'
+    // })
     // await this.fetchAllArticles()
   }
 
