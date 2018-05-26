@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import * as firebase from 'firebase';
+import { connect } from 'react-redux';
+
 import './App.css';
-import * as apiCalls from '../apiCalls'
-import * as firebase from 'firebase'
+import * as apiCalls from '../apiCalls';
+import { populateArticles } from '../actions';
 
 class App extends Component {
   constructor(props) {
@@ -10,27 +13,28 @@ class App extends Component {
     this.state = {
       domains: ['npr.org', 'nytimes.com', 'nbcnews.com', 'theatlantic.com', 'ap.org', 'c-span.org', 'foxnews.com', 'wsj.com', 'cato.org', 'breitbart.com'],
       matches: [],
-      articles: [],
     }
   }
 
   async componentDidMount() {
-    console.log(firebase.database())
-    // firebase.database().ref('mockData/').set({
-    //   seamus: 'garbage',
-    //   garbage: 'seamus'
-    // })
+    // console.log(firebase.database())
+    // // firebase.database().ref('mockData/').set({
+    // //   seamus: 'garbage',
+    // //   garbage: 'seamus'
+    // // })
     // await this.fetchAllArticles()
   }
 
   fetchAllArticles = async () => {
-    const articles = this.state.domains.map(async domain => {
-      for (let i = 1; i < 10; i++) {
-        const articles = await apiCalls.fetchArticles(domain, i)
-        this.state.articles.push(...articles.articles)
+    const { domains } = this.state
+    const articles = []
+    domains.map(async domain => {
+      for (let i = 1; i < 2; i++) {
+        const articlesToStore = await apiCalls.fetchArticles(domain, i)
+        articles.push(...articlesToStore.articles)
       }
     })
-    this.setState({ articles })
+    this.props.populateArticles(articles)
   }
 
   render() {
@@ -47,6 +51,10 @@ class App extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  populateArticles: (articles) => dispatch(populateArticles(articles))
+})
+
 const config = {
   apiKey: "AIzaSyDiBMqPsE5G7LQrVzd0SNdf_64Zi9zRgfI",
   authDomain: "the-punchbowl.firebaseapp.com",
@@ -60,4 +68,9 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config)
 }
 
-export default App;
+export {
+  App,
+  mapDispatchToProps
+}
+
+export default connect(null, mapDispatchToProps)(App)
