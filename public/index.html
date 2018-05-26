@@ -20,6 +20,19 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDiBMqPsE5G7LQrVzd0SNdf_64Zi9zRgfI",
+        authDomain: "the-punchbowl.firebaseapp.com",
+        databaseURL: "https://the-punchbowl.firebaseio.com",
+        projectId: "the-punchbowl",
+        storageBucket: "the-punchbowl.appspot.com",
+        messagingSenderId: "126203247142"
+      };
+      firebase.initializeApp(config);
+    </script>
   </head>
   <body>
     <noscript>
