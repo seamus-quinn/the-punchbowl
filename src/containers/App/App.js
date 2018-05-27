@@ -3,38 +3,50 @@ import * as firebase from 'firebase';
 import { connect } from 'react-redux';
 
 import './App.css';
-import * as apiCalls from '../apiCalls';
-import { populateArticles } from '../actions';
+import * as apiCalls from '../../apiCalls';
+import * as mockData from '../../mockData';
+import { populateArticles } from '../../actions';
+import { Search } from '../Search/Search'
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      mockDomains: ['npr.org'],
       domains: ['npr.org', 'nytimes.com', 'nbcnews.com', 'theatlantic.com', 'ap.org', 'c-span.org', 'foxnews.com', 'wsj.com', 'cato.org', 'breitbart.com'],
       matches: [],
     }
   }
 
   async componentDidMount() {
-    // console.log(firebase.database())
-    // // firebase.database().ref('mockData/').set({
-    // //   seamus: 'garbage',
-    // //   garbage: 'seamus'
-    // // })
-    // await this.fetchAllArticles()
+    // const articles = await this.fetchAllArticles()
+    // const articles = [{garbage: 'wow'}, {trash: 'much-wow'}]
+
+
+
+    const timeStamp = Date.now();
+    
+    // await firebase.database().ref('/').push({
+    //   timeStamp,
+    //   articles
+    // })
+
+    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
+    
+    this.props.populateArticles(articles)
   }
 
   fetchAllArticles = async () => {
-    const { domains } = this.state
+    const { mockDomains } = this.state
     const articles = []
-    domains.map(async domain => {
+    mockDomains.map(async domain => {
       for (let i = 1; i < 2; i++) {
         const articlesToStore = await apiCalls.fetchArticles(domain, i)
         articles.push(...articlesToStore.articles)
       }
     })
-    this.props.populateArticles(articles)
+    return await articles
   }
 
   render() {
@@ -46,6 +58,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Search />
       </div>
     );
   }
