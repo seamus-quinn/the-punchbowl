@@ -3,19 +3,13 @@ const populateArticles = (articles) => ({
   articles
 })
 
-const createMatch = (matches) => ({
-  type: 'CREATE_MATCH',
-  matches
-})
-
-const sendKeywords = (keywords) => ({
-  type: 'SEND_KEYWORDS',
-  keywords
+const createMatch = (match) => ({
+    type: 'CREATE_MATCH',
+    match
 })
 
 
 export {
   populateArticles,
-  createMatch,
-  sendKeywords
+  createMatch
 }

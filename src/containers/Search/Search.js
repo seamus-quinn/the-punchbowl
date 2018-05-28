@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createMatch, sendKeywords } from '../../actions';
+import { createMatch } from '../../actions';
 import { connect } from 'react-redux';
 
 class Search extends Component {
@@ -8,7 +8,6 @@ class Search extends Component {
     
     this.state = {
       userInput: '',
-      keywords: []
     }
   }
 
@@ -19,30 +18,35 @@ class Search extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.createKeywords();
+    const keywords = this.createKeywords();
+    const articles = this.findArticles(keywords);
+    const matches = this.createMatchObject(keywords, articles);
+    this.props.createMatch(matches)
   }
 
   createKeywords = () => {
     const { userInput } = this.state
     const keywords = userInput.split(' ')
-    this.setState({ keywords }, () => {
-      this.props.sendKeywords(this.state.keywords)
-      this.sendMatches()
-    })
+    return keywords;
   }
 
-  sendMatches = () => {
+  createMatchObject = (keywords, articles) => ({
+    keywords,
+    articles
+  })
+
+  findArticles = (keywords) => {
     const { articles } = this.props
     const matches = articles.filter(article => {
       let match = 0;
-      this.state.keywords.forEach(keyword => {
+      keywords.forEach(keyword => {
         if (article.title.toLowerCase().includes(keyword.toLowerCase()) || article.description.toLowerCase().includes(keyword.toLowerCase())) {
           match += 1;
         }
       })
-      return match === this.state.keywords.length;
+      return match === keywords.length;
     })
-    this.props.createMatch(matches) 
+    return matches
   }
 
   render() {
@@ -69,7 +73,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createMatch: (matches) => dispatch(createMatch(matches)),
-  sendKeywords: (keywords) => dispatch(sendKeywords(keywords))
 })
 
 export {

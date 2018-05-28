@@ -1,7 +1,7 @@
 const matchesReducer = (state =[], action) => {
   switch (action.type) {
     case 'CREATE_MATCH':
-      return action.matches
+      return [...state, action.match]
     default:
       return state
   }
