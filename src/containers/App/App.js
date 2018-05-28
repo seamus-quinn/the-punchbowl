@@ -31,16 +31,16 @@ class App extends Component {
     //   articles
     // })
 
-    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
+    // const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
     
     this.props.populateArticles(articles)
   }
 
   fetchAllArticles = async () => {
-    const { mockDomains } = this.state
+    const { domains } = this.state
     const articles = []
-    mockDomains.map(async domain => {
-      for (let i = 1; i < 2; i++) {
+    domains.map(async domain => {
+      for (let i = 1; i < 11; i++) {
         const articlesToStore = await apiCalls.fetchArticles(domain, i)
         articles.push(...articlesToStore.articles)
       }
