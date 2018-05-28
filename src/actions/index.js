@@ -3,6 +3,12 @@ const populateArticles = (articles) => ({
   articles
 })
 
+const createMatch = (matches) => ({
+  type: 'CREATE_MATCH',
+  matches
+})
+
 export {
-  populateArticles
+  populateArticles,
+  createMatch
 }
