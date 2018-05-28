@@ -8,6 +8,7 @@ import * as mockData from '../../mockData';
 import { populateArticles } from '../../actions';
 
 import Search from '../Search/Search'
+import MatchContainer from '../MatchContainer/MatchContainer'
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class App extends Component {
     //   articles
     // })
 
-    // const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
+    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
     
     this.props.populateArticles(articles)
   }
@@ -58,6 +59,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Search />
+        <MatchContainer />
       </div>
     );
   }
