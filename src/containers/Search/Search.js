@@ -20,18 +20,17 @@ class Search extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.createKeywords();
-    this.sendMatches();
   }
 
   createKeywords = () => {
     const { userInput } = this.state
     const keywords = userInput.split(' ')
-    this.setState({ keywords })
+    this.setState({ keywords }, () => this.sendMatches())
   }
 
   sendMatches = () => {
     const { articles } = this.props
-    console.log(this.props)
+    console.log(this.state.keywords)
     const matches = articles.filter(article => {
       let match = 0;
       this.state.keywords.forEach(keyword => {
@@ -41,6 +40,7 @@ class Search extends Component {
       })
       return match === this.state.keywords.length;
     })
+    console.log(matches)
     this.props.createMatch(matches) 
   }
 

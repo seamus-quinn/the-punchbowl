@@ -31,7 +31,7 @@ class App extends Component {
     //   articles
     // })
 
-    // const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
+    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
     
     this.props.populateArticles(articles)
   }
