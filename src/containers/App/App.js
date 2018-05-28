@@ -6,7 +6,8 @@ import './App.css';
 import * as apiCalls from '../../apiCalls';
 import * as mockData from '../../mockData';
 import { populateArticles } from '../../actions';
-import { Search } from '../Search/Search'
+
+import Search from '../Search/Search'
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +23,6 @@ class App extends Component {
   async componentDidMount() {
     // const articles = await this.fetchAllArticles()
     // const articles = [{garbage: 'wow'}, {trash: 'much-wow'}]
-
-
 
     const timeStamp = Date.now();
     

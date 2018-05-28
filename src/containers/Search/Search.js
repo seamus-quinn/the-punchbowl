@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { createMatch } from '../../actions';
+import { connect } from 'react-redux';
 
 class Search extends Component {
   constructor(props) {
-    super(props)
-
+    super(props);
+    
     this.state = {
       userInput: '',
       keywords: []
@@ -18,12 +20,28 @@ class Search extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.createKeywords();
+    this.sendMatches();
   }
 
   createKeywords = () => {
     const { userInput } = this.state
     const keywords = userInput.split(' ')
     this.setState({ keywords })
+  }
+
+  sendMatches = () => {
+    const { articles } = this.props
+    console.log(this.props)
+    const matches = articles.filter(article => {
+      let match = 0;
+      this.state.keywords.forEach(keyword => {
+        if (article.title.toLowerCase().includes(keyword.toLowerCase()) || article.description.toLowerCase().includes(keyword.toLowerCase())) {
+          match += 1;
+        }
+      })
+      return match === this.state.keywords.length;
+    })
+    this.props.createMatch(matches) 
   }
 
   render() {
@@ -35,7 +53,7 @@ class Search extends Component {
             name='userInput'
             value={this.state.userInput}
             onChange={this.handleChange}
-            placeHolder='Search...'
+            placeholder='Search...'
           />
           <button>Submit</button>
         </form>
@@ -44,6 +62,16 @@ class Search extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  articles: state.articles
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  createMatch: (matches) => dispatch(createMatch(matches))
+})
+
 export {
   Search
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search)
