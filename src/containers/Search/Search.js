@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createMatch } from '../../actions';
+import { createMatch, sendKeywords } from '../../actions';
 import { connect } from 'react-redux';
 
 class Search extends Component {
@@ -25,12 +25,14 @@ class Search extends Component {
   createKeywords = () => {
     const { userInput } = this.state
     const keywords = userInput.split(' ')
-    this.setState({ keywords }, () => this.sendMatches())
+    this.setState({ keywords }, () => {
+      this.props.sendKeywords(this.state.keywords)
+      this.sendMatches()
+    })
   }
 
   sendMatches = () => {
     const { articles } = this.props
-    console.log(this.state.keywords)
     const matches = articles.filter(article => {
       let match = 0;
       this.state.keywords.forEach(keyword => {
@@ -40,7 +42,6 @@ class Search extends Component {
       })
       return match === this.state.keywords.length;
     })
-    console.log(matches)
     this.props.createMatch(matches) 
   }
 
@@ -67,7 +68,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  createMatch: (matches) => dispatch(createMatch(matches))
+  createMatch: (matches) => dispatch(createMatch(matches)),
+  sendKeywords: (keywords) => dispatch(sendKeywords(keywords))
 })
 
 export {

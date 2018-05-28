@@ -8,7 +8,14 @@ const createMatch = (matches) => ({
   matches
 })
 
+const sendKeywords = (keywords) => ({
+  type: 'SEND_KEYWORDS',
+  keywords
+})
+
+
 export {
   populateArticles,
-  createMatch
+  createMatch,
+  sendKeywords
 }
