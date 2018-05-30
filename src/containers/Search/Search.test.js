@@ -13,7 +13,15 @@ describe('Search', () => {
 
   beforeEach(() => {
     
-    mockProps = 'wow'
+    mockProps = {
+      articles: [
+        {
+          title: 'Sushi prices skyrocket as Trump bans tuna, deeming it Un-American',
+          description: 'I cannot believe it says crestfallen Seamus Quinn...'
+        }
+      ],
+      createMatch: jest.fn()
+    }
     wrapper = shallow(<Search props={mockProps} />)
   })
 
@@ -25,8 +33,13 @@ describe('Search', () => {
   describe('handleChange', () => {
 
     it('sets the state of the Search component based on the the value of the input field', () => {
+      const wrapperInst = wrapper.instance();
+      const mockEvent = {target: {value: 'Sushi garbage'}}
 
-    })
+      wrapperInst.handleChange(mockEvent)
+
+      expect(wrapperInst.state.userInput).toEqual(mockEvent.target.value)
+    })  
   })
 
   describe('handleSubmit', () => {
@@ -50,23 +63,55 @@ describe('Search', () => {
 
   describe('createKeywords', () => {
 
-    it('returns an array of keywords', () => {
+    it('splits user input and returns an array of keywords', () => {
+      const wrapperInst = wrapper.instance();
+      const mockUserInput = 'Jungle sushi is unacceptable';
 
+      wrapperInst.setState({ userInput: mockUserInput })
+
+      const expected = ['Jungle', 'sushi', 'is', 'unacceptable']
+      const result = wrapperInst.createKeywords();
+
+      expect(result).toEqual(expected)
     })
   })
 
   describe('createMatchObject', () => {
 
     it('returns an object with a key of keywords and a key of articles', () => {
+      const mockKeywords = ['bingo', 'bango', 'bongo'];
+      const mockArticles = [
+        {
+          title: 'Sushi prices skyrocket as Trump bans tuna, deeming it Un-American',
+          description: 'I cannot believe it says crestfallen Seamus Quinn...'
+        }
+      ]
+
+      const result = wrapper.instance().createMatchObject(mockKeywords, mockArticles);
+
+      const expected = {
+        keywords: mockKeywords,
+        articles: mockArticles
+      }
+
+      expect(result).toEqual(expected)
 
     })
   })
 
   describe('findArticles', () => {
 
-    it('returns an array of articles that match every word in the array that is passed in', () => {
+    it('returns an array of articles that contain every word in the keywords array that is passed in in either their title or description ', () => {
+      const mockKeywords = ['bingo', 'bango']; 
+          
+      const wrapperInst = wrapper.instance();
+
+      const result = wrapperInst.findArticles(mockKeywords)
+
 
     })
+
+
   })
 
   describe('mapStateToProps', () => {
@@ -83,7 +128,7 @@ describe('Search', () => {
     })
 
     it('calls dispatch with the correct arguments', () => {
-      
+
     })
   })
 })
