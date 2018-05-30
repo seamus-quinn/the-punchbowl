@@ -24,15 +24,16 @@ class App extends Component {
   async componentDidMount() {
     // const articles = await this.fetchAllArticles()
     // const articles = [{garbage: 'wow'}, {trash: 'much-wow'}]
-
+    
+    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
+    console.log(articles)
     const timeStamp = Date.now();
     
-    // await firebase.database().ref('/').push({
-    //   timeStamp,
-    //   articles
-    // })
+    await firebase.database().ref('/').push({
+      timeStamp,
+      articles
+    })
 
-    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
     
     this.props.populateArticles(articles)
   }
@@ -41,7 +42,7 @@ class App extends Component {
     const { domains } = this.state
     const articles = []
     domains.map(async domain => {
-      for (let i = 1; i < 11; i++) {
+      for (let i = 1; i < 2; i++) {
         const articlesToStore = await apiCalls.fetchArticles(domain, i)
         articles.push(...articlesToStore.articles)
       }
