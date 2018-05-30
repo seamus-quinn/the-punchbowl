@@ -17,36 +17,40 @@ class App extends Component {
     this.state = {
       mockDomains: ['npr.org'],
       domains: ['npr.org', 'nytimes.com', 'nbcnews.com', 'theatlantic.com', 'ap.org', 'c-span.org', 'foxnews.com', 'wsj.com', 'cato.org', 'breitbart.com'],
-      matches: [],
     }
   }
 
-  async componentDidMount() {
-    // const articles = await this.fetchAllArticles()
-    // const articles = [{garbage: 'wow'}, {trash: 'much-wow'}]
-
-    const timeStamp = Date.now();
-    
-    // await firebase.database().ref('/').push({
-    //   timeStamp,
-    //   articles
-    // })
-
-    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
-    
-    this.props.populateArticles(articles)
-  }
-
   fetchAllArticles = async () => {
-    const { domains } = this.state
+    const { mockDomains } = this.state
     const articles = []
-    domains.map(async domain => {
-      for (let i = 1; i < 11; i++) {
+    mockDomains.map(async domain => {
+      for (let i = 1; i < 2; i++) {
         const articlesToStore = await apiCalls.fetchArticles(domain, i)
         articles.push(...articlesToStore.articles)
       }
     })
     return await articles
+  }
+
+  async componentDidMount() {
+    const timeStamp = Date.now();
+    // const articles = [{garbage: 'wow'}, {trash: 'much-wow'}]
+    const articles = await this.fetchAllArticles();
+    const data = await firebase.database().ref('/').push({
+      timeStamp,
+      articles
+    })
+
+    console.log(data)
+    return data;
+
+    
+    // const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
+    // console.log(articles)
+    
+
+    
+    // this.props.populateArticles(articles)
   }
 
   render() {

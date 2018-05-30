@@ -29,4 +29,9 @@ const mapStateToProps = (state) => ({
   matches: state.matches
 })
 
+export {
+  MatchContainer,
+  mapStateToProps
+}
+
 export default connect(mapStateToProps)(MatchContainer)

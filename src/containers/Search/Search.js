@@ -76,7 +76,9 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export {
-  Search
+  Search,
+  mapStateToProps,
+  mapDispatchToProps
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search)

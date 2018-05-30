@@ -13,11 +13,11 @@ describe('articlesReducer', () => {
     expect(result).toEqual(expected)
   })
 
-  it('returns new state if action type is POPULATE_MOVIES', () => {
+  it('returns new state if action type is POPULATE_ARTICLES', () => {
     const state = []
     const articles = ['Teletubbies Take Over London', 'Trump eats too many M & Ms before bed']
     const action = {
-      type: 'POPULATE_MOVIES',
+      type: 'POPULATE_ARTICLES',
       articles
     }
 
