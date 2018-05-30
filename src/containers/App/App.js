@@ -24,7 +24,7 @@ class App extends Component {
     const { mockDomains } = this.state
     const articles = mockDomains.map(async domain => {
       for (let i = 1; i < 2; i++) {
-        // const articlesToStore = await apiCalls.fetchArticles(domain, i)
+        const articlesToStore = await apiCalls.fetchArticles(domain, i)
         return articlesToStore.articles
       }
     })
@@ -55,12 +55,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+        <header className='header'>
+          <h1 className='app-title'>the punchBowl</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className='border'></div>
         <Search />
         <MatchContainer />
       </div>

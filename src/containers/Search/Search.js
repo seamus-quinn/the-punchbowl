@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { createMatch } from '../../actions';
 import { connect } from 'react-redux';
+import './Search.css';
+import arrow from '../../assets/right-arrow.svg'
 
 class Search extends Component {
   constructor(props) {
@@ -51,18 +53,22 @@ class Search extends Component {
 
   render() {
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
+        <form 
+          onSubmit={this.handleSubmit}
+          className='search-form'
+        >
           <input
             type='text'
             name='userInput'
             value={this.state.userInput}
             onChange={this.handleChange}
             placeholder='Search...'
+            className='input-field'
           />
-          <button>Submit</button>
+          <button className='submit-button'>
+            <img src={arrow} className='arrow'/>
+          </button>
         </form>
-      </div>
     )
   }
 }
