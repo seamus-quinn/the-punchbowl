@@ -45,7 +45,16 @@ describe('Search', () => {
   describe('handleSubmit', () => {
 
     it('calls the createKeywords method', () => {
+      const wrapperInst = wrapper.instance();
+      const mockEvent = { preventDefault: jest.fn() };
+      wrapperInst.createKeywords = jest.fn();
+      wrapperInst.findArticles = jest.fn();
+      wrapperInst.createMatchObject = jest.fn();
+      wrapperInst.props.createMatch = jest.fn();
 
+      wrapperInst.handleSubmit(mockEvent);
+
+      expect(wrapperInst.createKeywords).toHaveBeenCalled();
     })
 
     it('calls the findArticles method with the correct arguments', () => {
@@ -106,7 +115,7 @@ describe('Search', () => {
           
       const wrapperInst = wrapper.instance();
 
-      const result = wrapperInst.findArticles(mockKeywords)
+      // const result = wrapperInst.findArticles(mockKeywords)
 
 
     })

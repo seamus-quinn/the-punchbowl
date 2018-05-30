@@ -22,14 +22,13 @@ class App extends Component {
 
   fetchAllArticles = async () => {
     const { mockDomains } = this.state
-    const articles = []
-    mockDomains.map(async domain => {
+    const articles = mockDomains.map(async domain => {
       for (let i = 1; i < 2; i++) {
         const articlesToStore = await apiCalls.fetchArticles(domain, i)
-        articles.push(...articlesToStore.articles)
+        return articlesToStore.articles
       }
     })
-    return await articles
+    return await Promise.all(articles)
   }
 
   async componentDidMount() {
@@ -41,8 +40,8 @@ class App extends Component {
       articles
     })
 
-    console.log(data)
-    return data;
+    // console.log(data)
+    // return data;
 
     
     // const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
