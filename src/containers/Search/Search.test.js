@@ -22,7 +22,7 @@ describe('Search', () => {
       ],
       createMatch: jest.fn()
     }
-    wrapper = shallow(<Search props={mockProps} />)
+    wrapper = shallow(<Search {...mockProps} />)
   })
 
   it('matches the snapshot', () => {
@@ -45,19 +45,72 @@ describe('Search', () => {
   describe('handleSubmit', () => {
 
     it('calls the createKeywords method', () => {
+      const wrapperInst = wrapper.instance();
+      const mockEvent = { preventDefault: jest.fn() };
+      wrapperInst.createKeywords = jest.fn();
+      wrapperInst.findArticles = jest.fn();
+      wrapperInst.createMatchObject = jest.fn();
 
+      wrapperInst.handleSubmit(mockEvent);
+
+      expect(wrapperInst.createKeywords).toHaveBeenCalled();
     })
 
     it('calls the findArticles method with the correct arguments', () => {
+      const wrapperInst = wrapper.instance();
+      const mockKeyWords = ['wow', 'much', 'fun']
+      const mockEvent = { preventDefault: jest.fn() };
+      wrapperInst.createKeywords = jest.fn().mockImplementation(() => mockKeyWords);
+      wrapperInst.findArticles = jest.fn();
+      wrapperInst.createMatchObject = jest.fn();
 
+      wrapperInst.handleSubmit(mockEvent);
+
+      expect(wrapperInst.findArticles).toHaveBeenCalledWith(mockKeyWords);
     })
 
     it('calls the createMatchObject method with the correct arguments', () => {
 
+      const wrapperInst = wrapper.instance();
+      const mockKeyWords = ['wow', 'much', 'fun']
+      const mockEvent = { preventDefault: jest.fn() };
+      const mockArticles = [
+        {
+          title: 'Sushi prices skyrocket as Trump bans tuna, deeming it Un-American',
+          description: 'I cannot believe it says crestfallen Seamus Quinn...'
+        }
+      ];
+      wrapperInst.createKeywords = jest.fn().mockImplementation(() => mockKeyWords);
+      wrapperInst.findArticles = jest.fn().mockImplementation(() => mockArticles);
+      wrapperInst.createMatchObject = jest.fn();
+
+      wrapperInst.handleSubmit(mockEvent);
+
+      expect(wrapperInst.createMatchObject).toHaveBeenCalledWith(mockKeyWords, mockArticles);
+
     })
 
     it('calls this.props.createMatch with the correct arguments', () => {
+      const wrapperInst = wrapper.instance();
+      const mockMatches = [
+        {
+          keywords: ['wow', 'much', 'fun'],
+          articles: [
+            {
+              title: 'Sushi prices skyrocket as Trump bans tuna, deeming it Un-American',
+              description: 'I cannot believe it says crestfallen Seamus Quinn...'
+            }
+          ]
+        }
+      ]
+      const mockEvent = { preventDefault: jest.fn() };
+      wrapperInst.createKeywords = jest.fn();
+      wrapperInst.findArticles = jest.fn();
+      wrapperInst.createMatchObject = jest.fn().mockImplementation(() => mockMatches);
 
+      wrapperInst.handleSubmit(mockEvent);
+
+      expect(wrapperInst.props.createMatch).toHaveBeenCalledWith(mockMatches);
     })
   })
 
@@ -106,7 +159,7 @@ describe('Search', () => {
           
       const wrapperInst = wrapper.instance();
 
-      const result = wrapperInst.findArticles(mockKeywords)
+      // const result = wrapperInst.findArticles(mockKeywords)
 
 
     })
@@ -117,18 +170,42 @@ describe('Search', () => {
   describe('mapStateToProps', () => {
 
     it('returns an object with articles from the store', () => {
+      const state = {
+        articles: [
+          {
+            title: 'Sushi prices skyrocket as Trump bans tuna, deeming it Un-American',
+            description: 'I cannot believe it says crestfallen Seamus Quinn...'
+          }
+        ]
+      }
 
+      const expected = state.articles;
+      const result = mapStateToProps(state);
+
+      expect(result.articles).toEqual(expected)
     })
   })
 
   describe('mapDispatchToProps', () => {
 
     it('returns an object with a createMatch function', () => {
+      const dispatch = jest.fn();
+      const result = mapDispatchToProps(dispatch);
 
+      expect(typeof result.createMatch).toEqual('function')
     })
 
     it('calls dispatch with the correct arguments', () => {
+      const dispatch = jest.fn();
+      const result = mapDispatchToProps(dispatch);
+      const mockAction = {
+        type: 'CREATE_MATCH',
+        match: 'I am a match-maker'
+      }
 
+      result.createMatch(mockAction.match)
+
+      expect(dispatch).toHaveBeenCalledWith(mockAction)
     })
   })
 })

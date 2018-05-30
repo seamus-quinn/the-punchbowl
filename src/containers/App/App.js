@@ -22,27 +22,26 @@ class App extends Component {
 
   fetchAllArticles = async () => {
     const { mockDomains } = this.state
-    const articles = []
-    mockDomains.map(async domain => {
+    const articles = mockDomains.map(async domain => {
       for (let i = 1; i < 2; i++) {
-        const articlesToStore = await apiCalls.fetchArticles(domain, i)
-        articles.push(...articlesToStore.articles)
+        // const articlesToStore = await apiCalls.fetchArticles(domain, i)
+        return articlesToStore.articles
       }
     })
-    return await articles
+    return await Promise.all(articles)
   }
 
   async componentDidMount() {
     const timeStamp = Date.now();
     // const articles = [{garbage: 'wow'}, {trash: 'much-wow'}]
-    const articles = await this.fetchAllArticles();
-    const data = await firebase.database().ref('/').push({
-      timeStamp,
-      articles
-    })
+    // const articles = await this.fetchAllArticles();
+    // const data = await firebase.database().ref('/').push({
+    //   timeStamp,
+    //   articles
+    // })
 
-    console.log(data)
-    return data;
+    // console.log(data)
+    // return data;
 
     
     // const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
