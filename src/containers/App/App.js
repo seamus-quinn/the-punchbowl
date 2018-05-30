@@ -17,7 +17,6 @@ class App extends Component {
     this.state = {
       mockDomains: ['npr.org'],
       domains: ['npr.org', 'nytimes.com', 'nbcnews.com', 'theatlantic.com', 'ap.org', 'c-span.org', 'foxnews.com', 'wsj.com', 'cato.org', 'breitbart.com'],
-      matches: [],
     }
   }
 
