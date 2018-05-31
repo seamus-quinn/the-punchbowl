@@ -52,6 +52,11 @@ class Search extends Component {
     return matches
   }
 
+  populateInputField = (word) => {
+    const userInput = this.state.userInput + ' ' + word;
+    this.setState({ userInput })
+  }
+
   render() {
     return(
       <div>
@@ -71,7 +76,8 @@ class Search extends Component {
             <img src={arrow} alt='submit-button' className='arrow'/>
           </button>
         </form>
-        {this.props.articles.length && <Trending />}
+        {this.props.articles.length && 
+        <Trending populateInputField={this.populateInputField} />}
       </div>
     )
   }

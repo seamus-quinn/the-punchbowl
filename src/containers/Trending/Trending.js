@@ -30,7 +30,15 @@ class Trending extends Component {
   }
 
   render() {
-    const trending = this.state.trendingWords.map(word => <button className='button'>+ {word}</button>)
+    const { trendingWords } = this.state;
+    const trending = trendingWords.map(word => {
+      return(
+        <button 
+          className='button'
+          onClick={() => this.props.populateInputField(word)}
+        >+ {word}</button>
+      ) 
+    })
     return (
       <div className='trending'>
         {trending}
