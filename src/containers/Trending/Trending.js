@@ -30,7 +30,7 @@ class Trending extends Component {
   }
 
   render() {
-    const trending = this.state.trendingWords.map(word => <button className='button'>{word}</button>)
+    const trending = this.state.trendingWords.map(word => <button className='button'>+ {word}</button>)
     return (
       <div className='trending'>
         {trending}
