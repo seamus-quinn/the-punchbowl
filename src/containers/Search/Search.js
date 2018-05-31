@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { createMatch } from '../../actions';
 import { connect } from 'react-redux';
 import './Search.css';
-import arrow from '../../assets/right-arrow.svg'
+import arrow from '../../assets/right-arrow.svg';
+import Trending from '../Trending/Trending'
 
 class Search extends Component {
   constructor(props) {
@@ -51,8 +52,14 @@ class Search extends Component {
     return matches
   }
 
+  populateInputField = (word) => {
+    const userInput = this.state.userInput + ' ' + word;
+    this.setState({ userInput })
+  }
+
   render() {
     return(
+      <div>
         <form 
           onSubmit={this.handleSubmit}
           className='search-form'
@@ -66,9 +73,12 @@ class Search extends Component {
             className='input-field'
           />
           <button className='submit-button'>
-            <img src={arrow} className='arrow'/>
+            <img src={arrow} alt='submit-button' className='arrow'/>
           </button>
         </form>
+        {this.props.articles.length && 
+        <Trending populateInputField={this.populateInputField} />}
+      </div>
     )
   }
 }
