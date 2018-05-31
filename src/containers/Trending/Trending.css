@@ -7,9 +7,9 @@
 
 .button {
   color: #fff;
-  background: #181921;
+  background: none;
   font-family: 'Raleway', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   border: none;
   width: 200px;
   height: 60px;
