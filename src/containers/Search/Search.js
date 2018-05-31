@@ -68,10 +68,10 @@ class Search extends Component {
             className='input-field'
           />
           <button className='submit-button'>
-            <img src={arrow} className='arrow'/>
+            <img src={arrow} alt='submit-button' className='arrow'/>
           </button>
         </form>
-        <Trending />
+        {this.props.articles.length && <Trending />}
       </div>
     )
   }

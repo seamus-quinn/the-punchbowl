@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const timeStamp = Date.now();
+    // const timeStamp = Date.now();
     // const articles = [{garbage: 'wow'}, {trash: 'much-wow'}]
     // const articles = await this.fetchAllArticles();
     // const data = await firebase.database().ref('/').push({
@@ -45,7 +45,6 @@ class App extends Component {
 
     
     const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
-    console.log(articles)
     
 
     

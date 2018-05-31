@@ -1,0 +1,15 @@
+.trending {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 3%;
+  justify-content: space-between;
+}
+
+.button {
+  color: #fff;
+  background: #181921;
+  font-family: 'Raleway', sans-serif;
+  border: none;
+  width: 100px;
+  height: 30px;
+}
