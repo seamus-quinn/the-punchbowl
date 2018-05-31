@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { createMatch } from '../../actions';
 import { connect } from 'react-redux';
 import './Search.css';
-import arrow from '../../assets/right-arrow.svg'
+import arrow from '../../assets/right-arrow.svg';
+import Trending from '../Trending/Trending'
 
 class Search extends Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class Search extends Component {
 
   render() {
     return(
+      <div>
         <form 
           onSubmit={this.handleSubmit}
           className='search-form'
@@ -69,6 +71,8 @@ class Search extends Component {
             <img src={arrow} className='arrow'/>
           </button>
         </form>
+        <Trending />
+      </div>
     )
   }
 }
