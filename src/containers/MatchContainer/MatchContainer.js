@@ -1,25 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import Match from '../../components/Match/Match'
+import Match from '../../components/Match/Match';
+import './MatchContainer.css'
 
 const MatchContainer = (props) => {
   if (props.matches.length > 0) {
     const match = props.matches.map(match => {
       return (
-        <div>
+        <div className='match'>
+          <div className='border'></div>      
           <Match match={match} />
+          <div className='border'></div>          
         </div>
       )
     })
     return (
-      <div>
+      <div className='match-container'>
         {match}
       </div>
     )
   } else {
     return (
-      <div>
-        Please type in words to generate matched articles.
+      <div className='match-container'>
       </div>
     )
   }

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './Match.css';
 
 const Match = (props) => {
   const { match } = props
@@ -9,20 +10,33 @@ const Match = (props) => {
   })
   const articles = match.articles.map(article => {
     return (
-      <div>
-        <h1>{article.title}</h1>
-        <p>{article.description}</p>
+      <div className='article-card'>
+        <img src={article.urlToImage} className='image' />
+        <div className='card-info'>
+          <h1 className='article-title'>
+            {article.title}
+          </h1>
+          <p className='article-description'>
+            {article.description}
+          </p>
+          <a
+            href={article.url}
+            className='link-to-article'
+          >
+            View Article
+          </a>
+        </div>
       </div>
     )
   })
   return (
-    <div>
-      <div>
+    <div className='track'>
+      <div className='keyword-card'>
         {keywords}
       </div>
-      <div>
+      <div className='article-container'>
         {articles}
-      </div>
+      </div>    
     </div>
   )
 }

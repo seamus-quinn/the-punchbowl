@@ -1,0 +1,14 @@
+.match-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 3%;
+  font-family: 'Raleway', sans-serif;  
+}
+
+.border {
+  height: 1px;
+  background: rgb(103,117,176);
+  background: linear-gradient(214deg, rgba(103,117,176,1) 0%, rgb(153, 195, 231) 100%);
+  margin: 2% 3%;
+}

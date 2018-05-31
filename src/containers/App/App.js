@@ -44,12 +44,12 @@ class App extends Component {
     // return data;
 
     
-    // const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
-    // console.log(articles)
+    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
+    console.log(articles)
     
 
     
-    // this.props.populateArticles(articles)
+    this.props.populateArticles(articles)
   }
 
   render() {
