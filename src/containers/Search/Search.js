@@ -25,6 +25,7 @@ class Search extends Component {
     const articles = this.findArticles(keywords);
     const matches = this.createMatchObject(keywords, articles);
     this.props.createMatch(matches)
+    this.setState({ userInput: ''})
   }
 
   createKeywords = () => {
