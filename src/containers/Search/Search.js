@@ -11,6 +11,7 @@ class Search extends Component {
     
     this.state = {
       userInput: '',
+      errorStatus: ''
     }
   }
 
@@ -24,8 +25,12 @@ class Search extends Component {
     const keywords = this.createKeywords();
     const articles = this.findArticles(keywords);
     const matches = this.createMatchObject(keywords, articles);
-    this.props.createMatch(matches)
-    this.setState({ userInput: ''})
+    if (!matches.articles.length || this.state.userInput === '') {
+      this.setState({ errorStatus: 'No matches found, please try something else'})
+    } else {
+      this.props.createMatch(matches)
+      this.setState({ userInput: '', errorStatus: ''})
+    }
   }
 
   createKeywords = () => {
@@ -79,6 +84,9 @@ class Search extends Component {
             placeholder='Search...'
             className='input-field'
           />
+          <p>
+            {this.state.errorStatus}
+          </p>
           <button className='submit-button'>
             <img src={arrow} alt='submit-button' className='arrow'/>
           </button>
