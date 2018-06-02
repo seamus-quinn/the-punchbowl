@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import './Match.css';
+import { deleteMatch } from '../../actions'
 
 const Match = (props) => {
   const { match } = props
+  console.log(props)
   const keywords = match.keywords.map(keyword => {
     return(
       <h1>{keyword}</h1>
@@ -32,7 +35,8 @@ const Match = (props) => {
   return (
     <div className='track'>
       <div className='keyword-card'>
-        {keywords}
+        <div>{keywords}</div>
+        <button onClick={() => props.deleteMatch(match.id)}>x</button>
       </div>
       <div className='article-container'>
         {articles}
@@ -41,4 +45,8 @@ const Match = (props) => {
   )
 }
 
-export default Match
+const mapDispatchToProps = (dispatch) => ({
+  deleteMatch: (match) => dispatch(deleteMatch(match))
+})
+
+export default connect(null, mapDispatchToProps)(Match)

@@ -35,7 +35,8 @@ class Search extends Component {
 
   createMatchObject = (keywords, articles) => ({
     keywords,
-    articles
+    articles, 
+    id: Date.now()
   })
 
   findArticles = (keywords) => {
