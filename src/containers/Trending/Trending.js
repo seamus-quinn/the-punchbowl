@@ -25,7 +25,6 @@ class Trending extends Component {
       return wordObj[b] - wordObj[a];
     })
     const cleaned = helper.cleanWords(sorted)
-    console.log(cleaned.slice(0, 10))
     return cleaned.slice(0, 10)
   }
 

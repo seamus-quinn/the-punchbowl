@@ -8,8 +8,14 @@ const createMatch = (match) => ({
     match
 })
 
+const deleteMatch = (id) => ({
+  type: 'DELETE_MATCH',
+  id
+})
+
 
 export {
   populateArticles,
-  createMatch
+  createMatch, 
+  deleteMatch
 }
