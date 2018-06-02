@@ -59,6 +59,11 @@ class Search extends Component {
     this.setState({ userInput })
   }
 
+  clearInputField = (event) => {
+    event.preventDefault();
+    this.setState({ userInput: '' })
+  }
+
   render() {
     return(
       <div>
@@ -76,6 +81,12 @@ class Search extends Component {
           />
           <button className='submit-button'>
             <img src={arrow} alt='submit-button' className='arrow'/>
+          </button>
+          <button 
+            className='delete-button'
+            onClick={this.clearInputField}
+          >
+            x
           </button>
         </form>
         {this.props.articles.length && 
