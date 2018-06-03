@@ -1,20 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import './Match.css';
-import { deleteMatch } from '../../actions'
+import { deleteMatch } from '../../actions';
+import * as helper from '../../helper';
+import mitt from '../../assets/mitt.jpg'
 
 const Match = (props) => {
   const { match } = props
-  console.log(props)
   const keywords = match.keywords.map(keyword => {
     return(
       <h1>{keyword}</h1>
     )
   })
+
   const articles = match.articles.map(article => {
+    const source = helper.cleanSource(article.source.name);
+
     return (
       <div className='article-card'>
-        <img src={article.urlToImage} alt='' className='image' />
+        <img src={article.urlToImage ? article.urlToImage : mitt} alt='Image Unavailable' className='image' />
         <div className='card-info'>
           <h1 className='article-title'>
             {article.title}
@@ -22,8 +26,10 @@ const Match = (props) => {
           <p className='article-description'>
             {article.description}
           </p>
+          <p className='article-source'>Source: {source}</p>
           <a
             href={article.url}
+            target='_blank'
             className='link-to-article'
           >
             View Article
@@ -36,6 +42,7 @@ const Match = (props) => {
     <div className='track'>
       <div className='keyword-card'>
         <div>{keywords}</div>
+        <p>Number of Articles: {articles.length}</p>
         <button onClick={() => props.deleteMatch(match.id)}>x</button>
       </div>
       <div className='article-container'>
