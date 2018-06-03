@@ -21,15 +21,16 @@ class App extends Component {
   }
 
   fetchAllArticles = async () => {
-    const { mockDomains } = this.state
-    const articles = mockDomains.reduce( async (acc, domain) => {
-      for (let i = 1; i < 2; i++) {
+    const { domains } = this.state
+    const articles = domains.map(async domain => {
+      for (let i = 1; i < 4; i++) {
         const articlesToStore = await apiCalls.fetchArticles(domain, i)
-        acc.push(...articlesToStore.articles)
+        console.log(domain, i)
+        console.log('---------')
+        return articlesToStore.articles
       }
-      return acc
-    }, [])
-    return articles
+    })
+    return await Promise.all(articles)
   }
 
   async componentDidMount() {
@@ -37,11 +38,19 @@ class App extends Component {
     ref.on('value', this.getData);
   }
 
+  flattenArrays = (arr) => {
+    return arr.reduce( (acc, arr) => {
+      return acc.concat(Array.isArray(arr) ? this.flattenArrays(arr) : arr);
+    }, []);
+  }
+
   getData = async (data) => {
     const currentTime = Date.now();
     const { articles, timeStamp } = data.val();
-    if (currentTime - timeStamp >= 43200000) {
-      let articles = await this.fetchAllArticles()
+    console.log(currentTime - timeStamp)
+    if (currentTime - timeStamp >= 71575) {
+      const articlesArr = await this.fetchAllArticles();
+      const articles = this.flattenArrays(articlesArr)
       this.props.populateArticles(articles)
       firebase.database().ref('/').set({
         timeStamp: currentTime,

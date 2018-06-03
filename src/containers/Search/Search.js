@@ -47,13 +47,23 @@ class Search extends Component {
 
   findArticles = (keywords) => {
     const { articles } = this.props
+    console.log(articles)
     const matches = articles.filter(article => {
       let match = 0;
-      keywords.forEach(keyword => {
-        if (article.title.toLowerCase().includes(keyword.toLowerCase()) || article.description.toLowerCase().includes(keyword.toLowerCase())) {
-          match += 1;
-        }
-      })
+      if (article.description) {
+        keywords.forEach(keyword => {
+          if (article.title.toLowerCase().includes(keyword.toLowerCase()) || article.description.toLowerCase().includes(keyword.toLowerCase())) {
+            match += 1;
+          }
+        })
+      } else {
+        keywords.forEach(keyword => {
+          if (article.title.toLowerCase().includes(keyword.toLowerCase())) {
+            match += 1;
+          }
+        })
+      }
+      
       return match === keywords.length;
     })
     return matches
