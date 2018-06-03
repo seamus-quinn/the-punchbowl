@@ -40,7 +40,7 @@ export const cleanWords = (arr) => {
 export const cleanSource = (source) => {
   if(source === 'Npr.org') {
     return 'NPR'
-  } else if (source === 'Theatlantic.org') {
+  } else if (source === 'Theatlantic.com') {
     return 'The Atlantic'
   } else if (source === 'Ap.org') {
     return 'The Associated Press'

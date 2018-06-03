@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './Match.css';
 import { deleteMatch } from '../../actions';
 import * as helper from '../../helper';
+import mitt from '../../assets/mitt.jpg'
 
 const Match = (props) => {
   const { match } = props
@@ -14,10 +15,10 @@ const Match = (props) => {
 
   const articles = match.articles.map(article => {
     const source = helper.cleanSource(article.source.name);
-    console.log(source)
+
     return (
       <div className='article-card'>
-        <img src={article.urlToImage} alt='' className='image' />
+        <img src={article.urlToImage ? article.urlToImage : mitt} alt='Image Unavailable' className='image' />
         <div className='card-info'>
           <h1 className='article-title'>
             {article.title}
