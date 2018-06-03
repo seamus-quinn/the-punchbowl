@@ -22,34 +22,37 @@ class App extends Component {
 
   fetchAllArticles = async () => {
     const { mockDomains } = this.state
-    const articles = mockDomains.map(async domain => {
+    const articles = mockDomains.reduce( async (acc, domain) => {
       for (let i = 1; i < 2; i++) {
         const articlesToStore = await apiCalls.fetchArticles(domain, i)
-        return articlesToStore.articles
+        acc.push(...articlesToStore.articles)
       }
-    })
-    return await Promise.all(articles)
+      return acc
+    }, [])
+    return articles
   }
 
   async componentDidMount() {
-    // const timeStamp = Date.now();
-    // const articles = [{garbage: 'wow'}, {trash: 'much-wow'}]
-    // const articles = await this.fetchAllArticles();
-    // const data = await firebase.database().ref('/').push({
-    //   timeStamp,
-    //   articles
-    // })
-
-    // console.log(data)
-    // return data;
-
-    
-    const articles = [...mockData.wsj.articles, ...mockData.npr.articles, ...mockData.breitbart.articles]
-    
-
-    
-    this.props.populateArticles(articles)
+    const ref = firebase.database().ref('/')
+    ref.on('value', this.getData);
   }
+
+  getData = async (data) => {
+    const currentTime = Date.now();
+    const { articles, timeStamp } = data.val();
+    if (currentTime - timeStamp >= 43200000) {
+      let articles = await this.fetchAllArticles()
+      this.props.populateArticles(articles)
+      firebase.database().ref('/').set({
+        timeStamp: currentTime,
+        articles
+      })
+      console.log('ive done it!')
+    } else {
+      this.props.populateArticles(articles)
+    }
+  }
+
 
   render() {
     return (

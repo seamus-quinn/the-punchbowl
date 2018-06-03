@@ -21,7 +21,7 @@ export const countWords = (arr) => {
 }
 
 export const cleanWords = (arr) => {
-  const badWords = ['the', 'of', 'to', 'in', 'a', 'and', 'for', 'on', 'with', 'new', 'at', 'is', 'his', 'man', 'as', '-', '_', '—', 'you', 'that', 'into', 'about', 'over', 'an', 'are', 'after', 'be', 'from']
+  const badWords = ['the', 'of', 'to', 'in', 'a', 'and', 'for', 'on', 'with', 'new', 'at', 'is', 'his', 'man', 'as', '-', '_', '—', 'you', 'that', 'into', 'about', 'over', 'an', 'are', 'after', 'be', 'from', 'it', 'one', 'her', 'who']
   badWords.forEach(badWord => {
     arr.forEach(word => {
       if (word === badWord) {
