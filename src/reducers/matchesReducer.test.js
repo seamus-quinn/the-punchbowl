@@ -50,4 +50,47 @@ describe('matchesReducer', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('returns updated state if action type is DELETE_MATCH', () => {
+    const mockState = [
+      {
+        keywords: ['blah', 'blach'],
+        articles: ['wow', 'i', 'love', 'garbage'],
+        id: 2342
+      },
+      {
+        keywords: ['blah', 'wham'],
+        articles: ['much', 'i', 'garbage', 'garbage'],
+        id: 2482
+      },
+      {
+        keywords: ['no', 'thank', 'you'],
+        articles: ['these', 'are','articles'],
+        id: 200
+      }
+    ]
+
+    const mockAction = {
+      type: 'DELETE_MATCH',
+      id: 2482
+    }
+
+    const result = matchesReducer(mockState, mockAction)
+
+    const expected = [
+      {
+        keywords: ['blah', 'blach'],
+        articles: ['wow', 'i', 'love', 'garbage'],
+        id: 2342
+      },
+      {
+        keywords: ['no', 'thank', 'you'],
+        articles: ['these', 'are', 'articles'],
+        id: 200
+      }
+    ]
+
+    expect(result).toEqual(expected)
+
+  })
 })
