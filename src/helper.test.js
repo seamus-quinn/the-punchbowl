@@ -137,6 +137,13 @@ describe('cleanSource', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('returns the source if none of the conditions are met', () => {
+    const expected = 'The New York Times';
+    const result = helper.cleanSource('The New York Times');
+
+    expect(result).toEqual(expected)
+  })
 })
 
 describe('createMatchObject', () => {
