@@ -58,3 +58,9 @@ export const createMatchObject = (keywords, articles) => ({
   articles,
   id: Date.now()
 })
+
+export const flattenArrays = (arr) => {
+  return arr.reduce((acc, arr) => {
+    return acc.concat(Array.isArray(arr) ? flattenArrays(arr) : arr);
+  }, []);
+}

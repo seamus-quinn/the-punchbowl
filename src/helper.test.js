@@ -165,3 +165,16 @@ describe('createMatchObject', () => {
     expect(result).toEqual(expected)
   })
 })
+
+describe ('flattenArrays', () => {
+
+  it('returns an array when passed a nested arry', () => {
+    const nestedArr = [['wow'], ['krampus'], ['is'], ['cool']]
+
+    const result = helper.flattenArrays(nestedArr);
+
+    const expected = ['wow', 'krampus', 'is', 'cool']
+
+    expect(result).toEqual(expected);
+  })
+})
