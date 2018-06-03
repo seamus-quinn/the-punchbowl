@@ -138,3 +138,23 @@ describe('cleanSource', () => {
     expect(result).toEqual(expected)
   })
 })
+
+describe('createMatchObject', () => {
+
+  it('returns an object with keywords, articles and an id', () => {
+    const mockKeywords = ['garbage', 'wow', 'sushi']
+    const mockArticles = [
+      {title: 'wow an article'}, 
+      {title: 'holy cow another one'}
+    ]
+    Date.now = jest.fn().mockImplementation(() => 1)
+    const expected = {
+      keywords: mockKeywords,
+      articles: mockArticles,
+      id: 1
+    }
+    const result = helper.createMatchObject(mockKeywords, mockArticles)
+
+    expect(result).toEqual(expected)
+  })
+})
