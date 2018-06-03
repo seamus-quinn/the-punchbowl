@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import Match from '../../components/Match/Match';
+import Match from '../Match/Match';
 import './MatchContainer.css'
 
 const MatchContainer = (props) => {
