@@ -4,6 +4,7 @@ import './Match.css';
 import { deleteMatch } from '../../actions';
 import * as helper from '../../helper';
 import mitt from '../../assets/mitt.jpg'
+import x from '../../assets/clear-button.svg'
 
 const Match = (props) => {
   const { match } = props
@@ -19,7 +20,9 @@ const Match = (props) => {
 
     return (
       <div className='article-card'>
-        <img src={!imageSource ? mitt : article.urlToImage} alt='' className='image' />
+        <div className='image-container'>
+          <img src={!imageSource ? mitt : article.urlToImage} alt='' className='image' />
+        </div>
         <div className='card-info'>
           <h1 className='article-title'>
             {article.title}
@@ -42,9 +45,19 @@ const Match = (props) => {
   return (
     <div className='track'>
       <div className='keyword-card'>
-        <div>{keywords}</div>
-        <p>Number of Articles: {articles.length}</p>
-        <button onClick={() => props.deleteMatch(match.id)}>x</button>
+        <div className='keyword-text'>
+          <h1>Matches:</h1>
+          <div className='keyword-list'>
+            {keywords}
+          </div>
+        </div>
+        <button
+          className='match-delete-button'
+          onClick={() => props.deleteMatch(match.id)}
+        >
+          <img src={x} alt='' className='x' />
+        </button>
+        <p className='article-counter'>Number of Articles: {articles.length}</p>
       </div>
       <div className='article-container'>
         {articles}
