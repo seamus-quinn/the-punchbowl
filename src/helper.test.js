@@ -91,10 +91,49 @@ describe('countWords', () => {
 })
 
 describe('cleanWords', () => {
+
   it('returns a cleaned array without common words', () => {
     const mockWords = ['the', 'garbage', 'people', 'went', 'out', 'to', 'eat', 'at', 'a', 'dumpster', 'called', 'applebees']
     const expected = ['garbage', 'eat', 'dumpster', 'called', 'applebees']
     const result = helper.cleanWords(mockWords);
+
+    expect(result).toEqual(expected)
+  })
+})
+
+describe('cleanSource', () => {
+
+  it('returns NPR when passed Npr.org', () => {
+    const expected = 'NPR'
+    const result = helper.cleanSource('Npr.org');
+
+    expect(result).toEqual(expected)
+  })
+
+  it('returns The Atlantic when passed Theatlantic.com', () => {
+    const expected = 'The Atlantic'
+    const result = helper.cleanSource('Theatlantic.com');
+
+    expect(result).toEqual(expected)
+  })
+
+  it('returns The Associated Press when passed Ap.org', () => {
+    const expected = 'The Associated Press'
+    const result = helper.cleanSource('Ap.org');
+
+    expect(result).toEqual(expected)
+  })
+
+  it('returns C-SPAN when passed C-span.org', () => {
+    const expected = 'C-SPAN'
+    const result = helper.cleanSource('C-span.org');
+
+    expect(result).toEqual(expected)
+  })
+
+  it('returns The Cato Institute when passed Cato.org', () => {
+    const expected = 'The Cato Institute'
+    const result = helper.cleanSource('Cato.org');
 
     expect(result).toEqual(expected)
   })
