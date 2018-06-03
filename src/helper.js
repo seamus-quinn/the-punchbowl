@@ -36,3 +36,19 @@ export const cleanWords = (arr) => {
   })
   return arr;
 }
+
+export const cleanSource = (source) => {
+  if(source === 'Npr.org') {
+    return 'NPR'
+  } else if (source === 'Theatlantic.org') {
+    return 'The Atlantic'
+  } else if (source === 'Ap.org') {
+    return 'The Associated Press'
+  } else if (source === 'C-span.org') {
+    return 'C-SPAN'
+  } else if (source === 'Cato.org') {
+    return 'The Cato Institute'
+  } else {
+    return source
+  }
+}

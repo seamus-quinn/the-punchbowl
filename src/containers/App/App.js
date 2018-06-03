@@ -24,7 +24,7 @@ class App extends Component {
     const { domains } = this.state
     const allArticles = domains.map(async domain => {
       const domainArticles = []
-      for (let i = 1; i < 4; i++) {
+      for (let i = 1; i < 10; i++) {
         const fetchedArticles = await apiCalls.fetchArticles(domain, i)
         
         domainArticles.push(...fetchedArticles.articles)

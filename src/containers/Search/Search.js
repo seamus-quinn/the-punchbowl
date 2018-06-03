@@ -47,7 +47,6 @@ class Search extends Component {
 
   findArticles = (keywords) => {
     const { articles } = this.props
-    console.log(articles)
     const matches = articles.filter(article => {
       let match = 0;
       if (article.description) {

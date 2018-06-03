@@ -1,17 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import './Match.css';
-import { deleteMatch } from '../../actions'
+import { deleteMatch } from '../../actions';
+import * as helper from '../../helper';
 
 const Match = (props) => {
   const { match } = props
-  console.log(props)
   const keywords = match.keywords.map(keyword => {
     return(
       <h1>{keyword}</h1>
     )
   })
+
   const articles = match.articles.map(article => {
+    const source = helper.cleanSource(article.source.name);
+    console.log(source)
     return (
       <div className='article-card'>
         <img src={article.urlToImage} alt='' className='image' />
@@ -22,6 +25,7 @@ const Match = (props) => {
           <p className='article-description'>
             {article.description}
           </p>
+          <p className='article-source'>Source: {source}</p>
           <a
             href={article.url}
             target='_blank'

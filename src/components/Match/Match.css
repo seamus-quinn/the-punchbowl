@@ -45,7 +45,8 @@
   padding: 0 4%;
 }
 
-.article-description {
+.article-description, 
+.article-source {
   color: #181921;
   text-align: left;
   padding: 0 4%;
