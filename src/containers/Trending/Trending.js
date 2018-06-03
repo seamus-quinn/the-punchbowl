@@ -8,11 +8,15 @@ class Trending extends Component {
     super(props)
 
     this.state = {
-      trendingWords: []
+      trendingWords: [],
+      loading: ''
     }
   }
 
   componentDidMount() {
+    if (!this.props.articles.length) {
+      this.setState({ loading: 'wow such load' })
+    }
     const trendingWords = this.topTen(this.props.articles)
     this.setState({ trendingWords })
   }
@@ -29,7 +33,7 @@ class Trending extends Component {
   }
 
   render() {
-    const { trendingWords } = this.state;
+    const { trendingWords, loading } = this.state;
     const trending = trendingWords.map(word => {
       return(
         <button 
@@ -40,7 +44,7 @@ class Trending extends Component {
     })
     return (
       <div className='trending'>
-        {trending}
+        {loading !== '' ? loading : trending}
       </div>
     )
   }
