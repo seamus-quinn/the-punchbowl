@@ -64,3 +64,37 @@ export const flattenArrays = (arr) => {
     return acc.concat(Array.isArray(arr) ? flattenArrays(arr) : arr);
   }, []);
 }
+
+export const cleanArticles = (articles) => {
+  const cleanedArticles = articles.map(article => {
+    let cleanedArticle = {}
+    if (!article.source) {
+      cleanedArticle.source = { name: 'Unable to find article source' }
+    } else {
+      cleanedArticle.source = article.source
+    }
+    if (!article.title) {
+      cleanedArticle.title = 'Unable to find article title'
+    } else {
+      cleanedArticle.title = article.title
+    }
+    if (!article.description) {
+      cleanedArticle.description = 'Unable to find article description'
+    } else {
+      cleanedArticle.description = article.description
+    }
+    if (!article.url) {
+      cleanedArticle.url = 'Unable to find link to article'
+    } else {
+      cleanedArticle.url = article.url
+    }
+    if (!article.urlToImage) {
+      cleanedArticle.urlToImage = 'Unable to find link to image'
+    }
+    else {
+      cleanedArticle.urlToImage = article.urlToImage
+    }
+    return cleanedArticle
+  })
+  return cleanedArticles
+} 
