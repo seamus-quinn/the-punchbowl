@@ -23,15 +23,20 @@ describe('MatchContainer', () => {
         }
       ]
     }
-    wrapper = shallow(<MatchContainer matches={mockProps} />)
+    wrapper = shallow(<MatchContainer {...mockProps} />)
   })
 
-  it('matches the snapshot', () => {
+  it('matches the snapshot if there are matches received from props', () => {
 
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('returns a Match componets if the matches array received from store has length', () => {
+  it('matches the snapshot if there are no matches recieved from props', () => {
+    mockProps = {
+      matches: []
+    }
+    wrapper = shallow(<MatchContainer matches={mockProps} />)
+    expect(wrapper).toMatchSnapshot()
     
   })
 
