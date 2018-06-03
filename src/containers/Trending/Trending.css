@@ -1,7 +1,7 @@
 .trending {
   display: flex;
   flex-wrap: wrap;
-  margin: 2% 3%;
+  margin: 2% 3% 40px 0;
   justify-content: center;
 }
 
@@ -9,7 +9,7 @@
   color: #fff;
   background: none;
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   border: none;
   width: 200px;
   height: 60px;

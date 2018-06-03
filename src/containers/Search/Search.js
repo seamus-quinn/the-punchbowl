@@ -3,6 +3,7 @@ import { createMatch } from '../../actions';
 import { connect } from 'react-redux';
 import './Search.css';
 import arrow from '../../assets/right-arrow.svg';
+import x from '../../assets/clear-button.svg'
 import Trending from '../Trending/Trending'
 import * as helper from '../../helper';
 
@@ -92,19 +93,27 @@ class Search extends Component {
             placeholder='Search...'
             className='input-field'
           />
-          <p>
-            {this.state.errorStatus}
-          </p>
           <button className='submit-button'>
-            <img src={arrow} alt='submit-button' className='arrow'/>
+            <img 
+              src={arrow} 
+              alt='submit-button' 
+              className='arrow'
+              />
           </button>
           <button 
             className='delete-button'
             onClick={this.clearInputField}
-          >
-            x
+            >
+            <img 
+              src={x} 
+              alt='clear-button' 
+              className='x'
+              />
           </button>
         </form>
+          <p className='error-message'>
+            {this.state.errorStatus}
+          </p>
         {this.props.articles.length && 
         <Trending populateInputField={this.populateInputField} />}
       </div>
