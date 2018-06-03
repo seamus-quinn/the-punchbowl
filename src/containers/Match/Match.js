@@ -20,7 +20,9 @@ const Match = (props) => {
 
     return (
       <div className='article-card'>
-        <img src={!imageSource ? mitt : article.urlToImage} alt='' className='image' />
+        <div className='image-container'>
+          <img src={!imageSource ? mitt : article.urlToImage} alt='' className='image' />
+        </div>
         <div className='card-info'>
           <h1 className='article-title'>
             {article.title}

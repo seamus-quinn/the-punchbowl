@@ -8,7 +8,7 @@
 .keyword-card {
   width: 300px;
   color: #fff;  
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.2);
   position: relative;
 }
 
@@ -44,6 +44,7 @@
   display: flex;
   flex-direction: row;
   overflow-x: auto;
+  margin-left: 20px;
 }
 
 .article-card {
@@ -51,34 +52,53 @@
   width: 400px;
   height: 100%;
   color: #fff;
-  background: #181921;
   margin: 0 8px;
   background: #fff;
 }
 
+.image-container {
+  height: 220px;
+}
+
 .image {
   width: 100%;
-  height: 220px;
+  height: 100%;
 }
 
 .card-info {
   display: flex;
   flex-direction: column;
+  height: 380px;
   align-items: space-between;
+  position: relative;
+  margin: 0;
 }
 
 .article-title {
   color: #181921;
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: bold;
   text-align: left;
-  padding: 0 4%;
+  padding: 0 5%;
 }
 
 .article-description, 
 .article-source {
   color: #181921;
   text-align: left;
-  padding: 0 4%;
+  padding: 0 5%;
+}
+
+.link-to-article {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-decoration: none;
+  color: #15d1df
+}
+
+.link-to-article:visited {
+  color: #c782ff
 }
 
 
