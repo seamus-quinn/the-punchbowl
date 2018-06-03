@@ -4,7 +4,9 @@ exports[`App matches the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__unrendered__): <App
+    populateArticles={[Function]}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -19,23 +21,17 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <header
-          className="App-header"
+          className="header"
 >
           <h1
-                    className="App-title"
+                    className="app-title"
           >
-                    Welcome to React
+                    the punchBowl
           </h1>
 </header>,
-        <p
-          className="App-intro"
->
-          To get started, edit 
-          <code>
-                    src/App.js
-          </code>
-           and save to reload.
-</p>,
+        <div
+          className="border"
+/>,
         <Connect(Search) />,
         <Connect(MatchContainer) />,
       ],
@@ -49,11 +45,11 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <h1
-            className="App-title"
+            className="app-title"
 >
-            Welcome to React
+            the punchBowl
 </h1>,
-          "className": "App-header",
+          "className": "header",
         },
         "ref": null,
         "rendered": Object {
@@ -61,11 +57,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Welcome to React",
-            "className": "App-title",
+            "children": "the punchBowl",
+            "className": "app-title",
           },
           "ref": null,
-          "rendered": "Welcome to React",
+          "rendered": "the punchBowl",
           "type": "h1",
         },
         "type": "header",
@@ -75,32 +71,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            "To get started, edit ",
-            <code>
-              src/App.js
-</code>,
-            " and save to reload.",
-          ],
-          "className": "App-intro",
+          "className": "border",
         },
         "ref": null,
-        "rendered": Array [
-          "To get started, edit ",
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "src/App.js",
-            },
-            "ref": null,
-            "rendered": "src/App.js",
-            "type": "code",
-          },
-          " and save to reload.",
-        ],
-        "type": "p",
+        "rendered": null,
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -131,23 +106,17 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <header
-            className="App-header"
+            className="header"
 >
             <h1
-                        className="App-title"
+                        className="app-title"
             >
-                        Welcome to React
+                        the punchBowl
             </h1>
 </header>,
-          <p
-            className="App-intro"
->
-            To get started, edit 
-            <code>
-                        src/App.js
-            </code>
-             and save to reload.
-</p>,
+          <div
+            className="border"
+/>,
           <Connect(Search) />,
           <Connect(MatchContainer) />,
         ],
@@ -161,11 +130,11 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <h1
-              className="App-title"
+              className="app-title"
 >
-              Welcome to React
+              the punchBowl
 </h1>,
-            "className": "App-header",
+            "className": "header",
           },
           "ref": null,
           "rendered": Object {
@@ -173,11 +142,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Welcome to React",
-              "className": "App-title",
+              "children": "the punchBowl",
+              "className": "app-title",
             },
             "ref": null,
-            "rendered": "Welcome to React",
+            "rendered": "the punchBowl",
             "type": "h1",
           },
           "type": "header",
@@ -187,32 +156,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              "To get started, edit ",
-              <code>
-                src/App.js
-</code>,
-              " and save to reload.",
-            ],
-            "className": "App-intro",
+            "className": "border",
           },
           "ref": null,
-          "rendered": Array [
-            "To get started, edit ",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "src/App.js",
-              },
-              "ref": null,
-              "rendered": "src/App.js",
-              "type": "code",
-            },
-            " and save to reload.",
-          ],
-          "type": "p",
+          "rendered": null,
+          "type": "div",
         },
         Object {
           "instance": null,

@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 
 import './App.css';
 import * as apiCalls from '../../apiCalls';
-import * as mockData from '../../mockData';
+import * as helper from '../../helper'
 import { populateArticles } from '../../actions';
-
 import Search from '../Search/Search'
 import MatchContainer from '../MatchContainer/MatchContainer'
 
@@ -15,7 +14,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      mockDomains: ['npr.org'],
       domains: ['npr.org', 'nytimes.com', 'nbcnews.com', 'theatlantic.com', 'ap.org', 'c-span.org', 'foxnews.com', 'wsj.com', 'cato.org', 'breitbart.com'],
     }
   }
@@ -26,32 +24,25 @@ class App extends Component {
       const domainArticles = []
       for (let i = 1; i < 10; i++) {
         const fetchedArticles = await apiCalls.fetchArticles(domain, i)
-        
-        domainArticles.push(...fetchedArticles.articles)
+        domainArticles.push(...fetchedArticles)
       }
       return domainArticles;
     })
     return await Promise.all(allArticles)
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const ref = firebase.database().ref('/')
-    ref.on('value', this.getData);
+    ref.on('value', this.checkFirebase);
   }
 
-  flattenArrays = (arr) => {
-    return arr.reduce( (acc, arr) => {
-      return acc.concat(Array.isArray(arr) ? this.flattenArrays(arr) : arr);
-    }, []);
-  }
-
-  getData = async (data) => {
+  checkFirebase = async (data) => {
     const currentTime = Date.now();
     const { articles, timeStamp } = data.val();
     console.log(currentTime - timeStamp)
     if (currentTime - timeStamp >= 43200000) {
       const nestedArticles = await this.fetchAllArticles();
-      const articles = this.flattenArrays(nestedArticles)
+      const articles = helper.flattenArrays(nestedArticles)
       this.props.populateArticles(articles)
       firebase.database().ref('/').set({
         timeStamp: currentTime,

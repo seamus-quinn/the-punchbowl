@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import './Search.css';
 import arrow from '../../assets/right-arrow.svg';
 import Trending from '../Trending/Trending'
+import * as helper from '../../helper';
+
 
 class Search extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class Search extends Component {
     event.preventDefault();
     const keywords = this.createKeywords();
     const articles = this.findArticles(keywords);
-    const matches = this.createMatchObject(keywords, articles);
+    const matches = helper.createMatchObject(keywords, articles);
     if (!matches.articles.length || this.state.userInput === '') {
       this.setState({ errorStatus: 'No matches found, please try something else'})
     } else {
@@ -40,12 +42,6 @@ class Search extends Component {
     const keywords = userInput.split(' ')
     return keywords;
   }
-
-  createMatchObject = (keywords, articles) => ({
-    keywords,
-    articles, 
-    id: Date.now()
-  })
 
   findArticles = (keywords) => {
     const { articles } = this.props

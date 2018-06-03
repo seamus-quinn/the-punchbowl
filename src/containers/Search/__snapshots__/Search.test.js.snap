@@ -27,113 +27,75 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <form
-        onSubmit={[Function]}
->
-        <input
-                name="userInput"
-                onChange={[Function]}
-                placeholder="Search..."
-                type="text"
-                value=""
-        />
-        <button>
-                Submit
-        </button>
-</form>,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <input
-            name="userInput"
-            onChange={[Function]}
-            placeholder="Search..."
-            type="text"
-            value=""
-/>,
-          <button>
-            Submit
-</button>,
-        ],
-        "onSubmit": [Function],
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "name": "userInput",
-            "onChange": [Function],
-            "placeholder": "Search...",
-            "type": "text",
-            "value": "",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "input",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Submit",
-          },
-          "ref": null,
-          "rendered": "Submit",
-          "type": "button",
-        },
-      ],
-      "type": "form",
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <form
+      "children": Array [
+        <form
+          className="search-form"
           onSubmit={[Function]}
 >
           <input
+                    className="input-field"
                     name="userInput"
                     onChange={[Function]}
                     placeholder="Search..."
                     type="text"
                     value=""
           />
-          <button>
-                    Submit
+          <p />
+          <button
+                    className="submit-button"
+          >
+                    <img
+                              alt="submit-button"
+                              className="arrow"
+                              src="right-arrow.svg"
+                    />
+          </button>
+          <button
+                    className="delete-button"
+                    onClick={[Function]}
+          >
+                    x
           </button>
 </form>,
-      },
-      "ref": null,
-      "rendered": Object {
+        <Connect(Trending)
+          populateInputField={[Function]}
+/>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
           "children": Array [
             <input
+              className="input-field"
               name="userInput"
               onChange={[Function]}
               placeholder="Search..."
               type="text"
               value=""
 />,
-            <button>
-              Submit
+            <p />,
+            <button
+              className="submit-button"
+>
+              <img
+                            alt="submit-button"
+                            className="arrow"
+                            src="right-arrow.svg"
+              />
+</button>,
+            <button
+              className="delete-button"
+              onClick={[Function]}
+>
+              x
 </button>,
           ],
+          "className": "search-form",
           "onSubmit": [Function],
         },
         "ref": null,
@@ -143,13 +105,16 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "className": "input-field",
               "name": "userInput",
               "onChange": [Function],
               "placeholder": "Search...",
               "type": "text",
               "value": "",
             },
-            "ref": null,
+            "ref": Object {
+              "current": null,
+            },
             "rendered": null,
             "type": "input",
           },
@@ -158,15 +123,234 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Submit",
+              "children": "",
             },
             "ref": null,
-            "rendered": "Submit",
+            "rendered": "",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt="submit-button"
+                className="arrow"
+                src="right-arrow.svg"
+/>,
+              "className": "submit-button",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "submit-button",
+                "className": "arrow",
+                "src": "right-arrow.svg",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "x",
+              "className": "delete-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "x",
             "type": "button",
           },
         ],
         "type": "form",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "populateInputField": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <form
+            className="search-form"
+            onSubmit={[Function]}
+>
+            <input
+                        className="input-field"
+                        name="userInput"
+                        onChange={[Function]}
+                        placeholder="Search..."
+                        type="text"
+                        value=""
+            />
+            <p />
+            <button
+                        className="submit-button"
+            >
+                        <img
+                                    alt="submit-button"
+                                    className="arrow"
+                                    src="right-arrow.svg"
+                        />
+            </button>
+            <button
+                        className="delete-button"
+                        onClick={[Function]}
+            >
+                        x
+            </button>
+</form>,
+          <Connect(Trending)
+            populateInputField={[Function]}
+/>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="input-field"
+                name="userInput"
+                onChange={[Function]}
+                placeholder="Search..."
+                type="text"
+                value=""
+/>,
+              <p />,
+              <button
+                className="submit-button"
+>
+                <img
+                                alt="submit-button"
+                                className="arrow"
+                                src="right-arrow.svg"
+                />
+</button>,
+              <button
+                className="delete-button"
+                onClick={[Function]}
+>
+                x
+</button>,
+            ],
+            "className": "search-form",
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "input-field",
+                "name": "userInput",
+                "onChange": [Function],
+                "placeholder": "Search...",
+                "type": "text",
+                "value": "",
+              },
+              "ref": Object {
+                "current": null,
+              },
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "",
+              },
+              "ref": null,
+              "rendered": "",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt="submit-button"
+                  className="arrow"
+                  src="right-arrow.svg"
+/>,
+                "className": "submit-button",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "submit-button",
+                  "className": "arrow",
+                  "src": "right-arrow.svg",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "x",
+                "className": "delete-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "x",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "populateInputField": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
       "type": "div",
     },
   ],

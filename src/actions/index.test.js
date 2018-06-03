@@ -1,6 +1,7 @@
 import {
   populateArticles,
-  createMatch
+  createMatch, 
+  deleteMatch
 } from './index';
 
 describe('Action Creators', () => {
@@ -37,6 +38,22 @@ describe('Action Creators', () => {
       }
 
       const result = createMatch(match)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('deleteMatch', () => {
+
+    it('creates an action with the correct payload and type', () => {
+      const mockId = 1234;
+
+      const expected = {
+        type: 'DELETE_MATCH',
+        id: 1234
+      }
+
+      const result = deleteMatch(mockId)
 
       expect(result).toEqual(expected)
     })
