@@ -89,7 +89,7 @@ export const cleanArticles = (articles) => {
       cleanedArticle.url = article.url
     }
     if (!article.urlToImage) {
-      cleanedArticle.urlToImage = 'Unable to find link to image'
+      cleanedArticle.urlToImage = null
     }
     else {
       cleanedArticle.urlToImage = article.urlToImage

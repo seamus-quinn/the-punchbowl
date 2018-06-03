@@ -213,5 +213,16 @@ describe('cleanArticles', () => {
 
   })
 
-  it('does not change the url0')
+  it('does not change the url if there is a url present', () => {
+
+  })
+
+  it('sets the urlToImage to be: null if there is no urlToImage found for that article', () => {
+
+  })
+
+  it('does not change the urlToImage if there is one present', () => {
+
+  })
+
 })
