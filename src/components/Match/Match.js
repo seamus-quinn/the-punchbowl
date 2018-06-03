@@ -42,6 +42,7 @@ const Match = (props) => {
     <div className='track'>
       <div className='keyword-card'>
         <div>{keywords}</div>
+        <p>Number of Articles: {articles.length}</p>
         <button onClick={() => props.deleteMatch(match.id)}>x</button>
       </div>
       <div className='article-container'>

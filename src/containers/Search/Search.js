@@ -8,6 +8,8 @@ import Trending from '../Trending/Trending'
 class Search extends Component {
   constructor(props) {
     super(props);
+
+    this.inputField = React.createRef();
     
     this.state = {
       userInput: '',
@@ -62,7 +64,6 @@ class Search extends Component {
           }
         })
       }
-      
       return match === keywords.length;
     })
     return matches
@@ -76,6 +77,7 @@ class Search extends Component {
   clearInputField = (event) => {
     event.preventDefault();
     this.setState({ userInput: '' })
+    this.inputField.current.focus();
   }
 
   render() {
@@ -88,6 +90,7 @@ class Search extends Component {
           <input
             type='text'
             name='userInput'
+            ref={this.inputField}
             value={this.state.userInput}
             onChange={this.handleChange}
             placeholder='Search...'
