@@ -15,11 +15,11 @@ const Match = (props) => {
 
   const articles = match.articles.map(article => {
     const source = helper.cleanSource(article.source.name);
-    console.log (article.urlToImage)
+    const imageSource = helper.cleanImageUrl(article.urlToImage)
 
     return (
       <div className='article-card'>
-        <img src={article.urlToImage === null ? mitt : article.urlToImage} alt='Image Unavailable' className='image' />
+        <img src={!imageSource ? mitt : article.urlToImage} alt='Image Unavailable' className='image' />
         <div className='card-info'>
           <h1 className='article-title'>
             {article.title}

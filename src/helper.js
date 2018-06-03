@@ -98,3 +98,15 @@ export const cleanArticles = (articles) => {
   })
   return cleanedArticles
 } 
+
+export const cleanImageUrl = (url) => {
+  if(!url) {
+    return false;
+  }
+  const split = url.split('/')
+  if(split[0] === 'https:' || split[0] === 'http:'){
+    return true
+  } else {
+    return false
+  }
+}
