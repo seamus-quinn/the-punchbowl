@@ -52,3 +52,9 @@ export const cleanSource = (source) => {
     return source
   }
 }
+
+export const createMatchObject = (keywords, articles) => ({
+  keywords,
+  articles,
+  id: Date.now()
+})

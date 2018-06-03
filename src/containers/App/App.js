@@ -15,7 +15,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      mockDomains: ['npr.org'],
       domains: ['npr.org', 'nytimes.com', 'nbcnews.com', 'theatlantic.com', 'ap.org', 'c-span.org', 'foxnews.com', 'wsj.com', 'cato.org', 'breitbart.com'],
     }
   }
@@ -26,7 +25,6 @@ class App extends Component {
       const domainArticles = []
       for (let i = 1; i < 10; i++) {
         const fetchedArticles = await apiCalls.fetchArticles(domain, i)
-        
         domainArticles.push(...fetchedArticles.articles)
       }
       return domainArticles;
