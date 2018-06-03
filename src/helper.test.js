@@ -178,3 +178,40 @@ describe ('flattenArrays', () => {
     expect(result).toEqual(expected);
   })
 })
+
+describe('cleanArticles', () => {
+  
+  it('returns an array of cleaned articles, ', () => {
+
+  })
+
+  it('sets the source.name to be: Unable to find article source if there is no source found for that article', () => {
+
+  })
+
+  it('does not change the source if the source is present', () => {
+
+  })
+
+  it('sets the title to be: Unable to find article title if there is no title found for that article', () => {
+
+  })
+
+  it('does not change the title if the title is present', () => {
+
+  })
+
+  it('sets the description to be: Unable to find article description if there is no description found for that article', () => {
+
+  })
+
+  it('does not change the description if the description is present', () => {
+
+  })
+
+  it('sets the url to be: Unable to find link to article if there is no url found for that article', () => {
+
+  })
+
+  it('does not change the url0')
+})
