@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 
 import './App.css';
 import * as apiCalls from '../../apiCalls';
-import * as mockData from '../../mockData';
+import * as helper from '../../helper'
 import { populateArticles } from '../../actions';
-
 import Search from '../Search/Search'
 import MatchContainer from '../MatchContainer/MatchContainer'
 
@@ -32,24 +31,18 @@ class App extends Component {
     return await Promise.all(allArticles)
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const ref = firebase.database().ref('/')
-    ref.on('value', this.getData);
+    ref.on('value', this.checkFirebase);
   }
 
-  flattenArrays = (arr) => {
-    return arr.reduce( (acc, arr) => {
-      return acc.concat(Array.isArray(arr) ? this.flattenArrays(arr) : arr);
-    }, []);
-  }
-
-  getData = async (data) => {
+  checkFirebase = async (data) => {
     const currentTime = Date.now();
     const { articles, timeStamp } = data.val();
     console.log(currentTime - timeStamp)
     if (currentTime - timeStamp >= 43200000) {
       const nestedArticles = await this.fetchAllArticles();
-      const articles = this.flattenArrays(nestedArticles)
+      const articles = helper.flattenArrays(nestedArticles)
       this.props.populateArticles(articles)
       firebase.database().ref('/').set({
         timeStamp: currentTime,
