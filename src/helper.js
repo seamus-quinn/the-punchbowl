@@ -69,7 +69,7 @@ export const cleanArticles = (articles) => {
   const cleanedArticles = articles.map(article => {
     let cleanedArticle = {}
     if (!article.source) {
-      cleanedArticle.source = { name: 'Unable to find article source' }
+      cleanedArticle.source = {name: 'Unable to find article source'}
     } else {
       cleanedArticle.source = article.source
     }

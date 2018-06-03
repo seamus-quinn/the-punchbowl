@@ -180,49 +180,217 @@ describe ('flattenArrays', () => {
 })
 
 describe('cleanArticles', () => {
-  
-  it('returns an array of cleaned articles, ', () => {
 
+  it('returns an array of cleaned articles, ', () => {
+    const mockArticles = [
+      {
+        "source": {
+          "id": "the-new-york-times",
+          "name": "The New York Times"
+        },
+        "author": "http://www.nytimes.com/by/frank-litsky",
+        "title": "Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times",
+        "description": "New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …",
+        "url": "https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html",
+        "urlToImage": "https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg",
+        "publishedAt": "2018-05-21T03:08:10Z"
+      }
+    ]
+
+    const result = helper.cleanArticles(mockArticles)
+    const expected = [
+      {
+        description: 'New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …',
+        source: {
+          id: 'the-new-york-times',
+          name: 'The New York Times'
+        },
+        title: 'Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times',
+        url: 'https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html',
+        urlToImage: 'https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg'
+      }
+    ]
+    expect(result).toEqual(expected)
   })
 
   it('sets the source.name to be: Unable to find article source if there is no source found for that article', () => {
+    const mockArticles = [
+      {
+        description: 'New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …',
+        title: 'Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times',
+        url: 'https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html',
+        urlToImage: 'https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg'
+      }
+    ]
 
-  })
+    const result = helper.cleanArticles(mockArticles)
+    const expected = [
+      {
+        description: 'New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …',
+        source: {
+          name: 'Unable to find article source'
+        },
+        title: 'Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times',
+        url: 'https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html',
+        urlToImage: 'https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg'
+      }
+    ]
 
-  it('does not change the source if the source is present', () => {
-
+    expect(result).toEqual(expected)
   })
 
   it('sets the title to be: Unable to find article title if there is no title found for that article', () => {
+    const mockArticles = [
+      {
+        "source": {
+          "id": "the-new-york-times",
+          "name": "The New York Times"
+        },
+        "author": "http://www.nytimes.com/by/frank-litsky",
+        "description": "New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …",
+        "url": "https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html",
+        "urlToImage": "https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg",
+        "publishedAt": "2018-05-21T03:08:10Z"
+      }
+    ]
 
-  })
+    const result = helper.cleanArticles(mockArticles)
 
-  it('does not change the title if the title is present', () => {
+    const expected = [
+      {
+        description: 'New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …',
+        source: {
+          id: 'the-new-york-times',
+          name: 'The New York Times'
+        },
+        title: 'Unable to find article title',
+        url: 'https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html',
+        urlToImage: 'https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg'
+      }
+    ]
 
+    expect(result).toEqual(expected)
   })
 
   it('sets the description to be: Unable to find article description if there is no description found for that article', () => {
+    const mockArticles = [
+      {
+        "source": {
+          "id": "the-new-york-times",
+          "name": "The New York Times"
+        },
+        "author": "http://www.nytimes.com/by/frank-litsky",
+        "title": "Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times",
+        "url": "https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html",
+        "urlToImage": "https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg",
+        "publishedAt": "2018-05-21T03:08:10Z"
+      }
+    ]
 
-  })
+    const result = helper.cleanArticles(mockArticles);
 
-  it('does not change the description if the description is present', () => {
-
+    const expected = [
+      {
+        "source": {
+          "id": "the-new-york-times",
+          "name": "The New York Times"
+        },
+        "author": "http://www.nytimes.com/by/frank-litsky",
+        "title": "Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times",
+        "description": 'Unable to find article description',
+        "url": "https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html",
+        "urlToImage": "https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg",
+        "publishedAt": "2018-05-21T03:08:10Z"
+      }
+    ]
   })
 
   it('sets the url to be: Unable to find link to article if there is no url found for that article', () => {
+    const mockArticles = [
+      {
+        "source": {
+          "id": "the-new-york-times",
+          "name": "The New York Times"
+        },
+        "author": "http://www.nytimes.com/by/frank-litsky",
+        "title": "Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times",
+        "description": "New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …",
+        "urlToImage": "https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg",
+        "publishedAt": "2018-05-21T03:08:10Z"
+      }
+    ]
 
-  })
+    const result = helper.cleanArticles(mockArticles);
 
-  it('does not change the url if there is a url present', () => {
+    const expected = [
+      {
+        "source": {
+          "id": "the-new-york-times",
+          "name": "The New York Times"
+        },
+        "title": "Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times",
+        "description": "New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …",
+        "url": 'Unable to find link to article',
+        "urlToImage": "https://static01.nyt.com/images/2018/05/21/sports/21cannon1/21cannon1-facebookJumbo.jpg",
+      }
+    ]
 
+    expect(result).toEqual(expected)
   })
 
   it('sets the urlToImage to be: null if there is no urlToImage found for that article', () => {
+    const mockArticles = [
+      {
+        "source": {
+          "id": "the-new-york-times",
+          "name": "The New York Times"
+        },
+        "author": "http://www.nytimes.com/by/frank-litsky",
+        "title": "Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times",
+        "description": "New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …",
+        "url": "https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html",
+        "publishedAt": "2018-05-21T03:08:10Z"
+      }
+    ]
 
+    const expected = [
+      {
+        "source": {
+          "id": "the-new-york-times",
+          "name": "The New York Times"
+        },
+        "title": "Billy Cannon, Football Hero With a Troubled Life, Dies at 80 - New York Times",
+        "description": "New York Times Billy Cannon, Football Hero With a Troubled Life, Dies at 80 New York Times Billy Cannon, a charismatic college and professional football hero whose world came crashing down when he went to prison for counterfeiting, died on Friday at his home …",
+        "url": "https://www.nytimes.com/2018/05/20/obituaries/billy-cannon-dead-football-heisman.html",
+        "urlToImage": null,
+      }
+    ]
+
+    const result = helper.cleanArticles(mockArticles)
+
+    expect(result).toEqual(expected)
   })
 
-  it('does not change the urlToImage if there is one present', () => {
+})
 
+describe('cleanImageUrl', () => {
+
+  it('returns true if the imageUrl is valid', () => {
+    
+    const result = helper.cleanImageUrl('https://wow.jpg')
+
+    expect(result).toEqual(true)
   })
 
+  it('returns false if the imageUrl is not valid', () => {
+
+    const resultOne = helper.cleanImageUrl(null);
+    const resultTwo = helper.cleanImageUrl(undefined);
+    const resultThree = helper.cleanImageUrl('wowhahathisisnnotanimageurl')
+
+    expect(resultOne).toEqual(false)
+    expect(resultTwo).toEqual(false)
+    expect(resultThree).toEqual(false)
+    
+  })
 })
