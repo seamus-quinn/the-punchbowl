@@ -24,6 +24,7 @@ const Match = (props) => {
           </p>
           <a
             href={article.url}
+            target='_blank'
             className='link-to-article'
           >
             View Article
