@@ -45,27 +45,57 @@ describe('makeWordsArr', () => {
 
     expect(result).toEqual(expected)
   })
+})
 
-  describe('countWords', () => {
+describe('countWords', () => {
 
-    it('returns an object with keys of words, and values that are the number of times that is present in the array passed to it', () => {
-      const mockWords = ['garbage', 'sushi', 'wow', 'much', 'sushi', 'lol', 'what', 'wow', 'crazy', 'muffins', 'bonsai', 'what']
+  it('returns an object with keys of words, and values that are the number of times that is present in the array passed to it', () => {
+    const mockWords = ['garbage', 'sushi', 'wow', 'much', 'sushi', 'lol', 'what', 'wow', 'crazy', 'muffins', 'bonsai', 'what']
 
-      const expected = {
-        garbage: 1,
-        sushi: 2,
-        wow: 2,
-        much: 1,
-        lol: 1,
-        what: 2,
-        crazy: 1,
-        muffins: 1,
-        bonsai: 1
-      }
+    const expected = {
+      garbage: 1,
+      sushi: 2,
+      wow: 2,
+      much: 1,
+      lol: 1,
+      what: 2,
+      crazy: 1,
+      muffins: 1,
+      bonsai: 1
+    }
 
-      const result = helper.countWords(mockWords)
+    const result = helper.countWords(mockWords)
 
-      expect(result).toEqual(expected)
-    })
+    expect(result).toEqual(expected)
+  })
+
+  it('is returns an object with lowercase keys', () => {
+    const mockWords = ['Garbage', 'sushi', 'wow', 'much', 'sushi', 'lol', 'what', 'wow', 'crazy', 'Muffins', 'bonSai', 'What']
+
+    const expected = {
+      garbage: 1,
+      sushi: 2,
+      wow: 2,
+      much: 1,
+      lol: 1,
+      what: 2,
+      crazy: 1,
+      muffins: 1,
+      bonsai: 1
+    }
+
+    const result = helper.countWords(mockWords)
+
+    expect(result).toEqual(expected)
+  })
+})
+
+describe('cleanWords', () => {
+  it('returns a cleaned array without common words', () => {
+    const mockWords = ['the', 'garbage', 'people', 'went', 'out', 'to', 'eat', 'at', 'a', 'dumpster', 'called', 'applebees']
+    const expected = ['garbage', 'eat', 'dumpster', 'called', 'applebees']
+    const result = helper.cleanWords(mockWords);
+
+    expect(result).toEqual(expected)
   })
 })
