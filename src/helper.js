@@ -112,12 +112,12 @@ export const cleanImageUrl = (url) => {
 }
 
 export const topTen = (arr) => {
-  const words = helper.makeWordsArr(arr)
-  const wordObj = helper.countWords(words);
+  const words = makeWordsArr(arr)
+  const wordObj = countWords(words);
   const keys = Object.keys(wordObj);
   const sorted = keys.sort((a, b) => {
     return wordObj[b] - wordObj[a];
   })
-  const cleaned = helper.cleanWords(sorted)
+  const cleaned = cleanWords(sorted)
   return cleaned.slice(0, 10)
 }

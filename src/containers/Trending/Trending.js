@@ -17,7 +17,7 @@ class Trending extends Component {
     if (!this.props.articles.length) {
       this.setState({ loading: 'wow such load' })
     }
-    const trendingWords = this.topTen(this.props.articles)
+    const trendingWords = helper.topTen(this.props.articles)
     this.setState({ trendingWords })
   }
 
@@ -45,7 +45,8 @@ const mapStateToProps = (state) => ({
 })
 
 export {
-  Trending
+  Trending,
+  mapStateToProps
 }
 
 export default connect(mapStateToProps)(Trending)
