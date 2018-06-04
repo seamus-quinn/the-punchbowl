@@ -1,0 +1,485 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Trending matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Trending
+    articles={
+        Array [
+            Object {
+              "description": "I forgot my charger at Turing and now I have to go back :(",
+              "title": "Bummer Dude",
+            },
+          ]
+    }
+    keywords={
+        Array [
+            "wow",
+            "such",
+            "garbage",
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="button"
+          onClick={[Function]}
+>
+          + 
+          i
+</button>,
+        <button
+          className="button"
+          onClick={[Function]}
+>
+          + 
+          turing
+</button>,
+        <button
+          className="button"
+          onClick={[Function]}
+>
+          + 
+          bummer
+</button>,
+        <button
+          className="button"
+          onClick={[Function]}
+>
+          + 
+          forgot
+</button>,
+        <button
+          className="button"
+          onClick={[Function]}
+>
+          + 
+          charger
+</button>,
+        <button
+          className="button"
+          onClick={[Function]}
+>
+          + 
+          dude
+</button>,
+        <button
+          className="button"
+          onClick={[Function]}
+>
+          + 
+          back
+</button>,
+        <button
+          className="button"
+          onClick={[Function]}
+>
+          + 
+          :(
+</button>,
+      ],
+      "className": "trending",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "+ ",
+            "i",
+          ],
+          "className": "button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "+ ",
+          "i",
+        ],
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "+ ",
+            "turing",
+          ],
+          "className": "button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "+ ",
+          "turing",
+        ],
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "+ ",
+            "bummer",
+          ],
+          "className": "button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "+ ",
+          "bummer",
+        ],
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "3",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "+ ",
+            "forgot",
+          ],
+          "className": "button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "+ ",
+          "forgot",
+        ],
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "4",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "+ ",
+            "charger",
+          ],
+          "className": "button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "+ ",
+          "charger",
+        ],
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "5",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "+ ",
+            "dude",
+          ],
+          "className": "button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "+ ",
+          "dude",
+        ],
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "6",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "+ ",
+            "back",
+          ],
+          "className": "button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "+ ",
+          "back",
+        ],
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": "7",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "+ ",
+            ":(",
+          ],
+          "className": "button",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "+ ",
+          ":(",
+        ],
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="button"
+            onClick={[Function]}
+>
+            + 
+            i
+</button>,
+          <button
+            className="button"
+            onClick={[Function]}
+>
+            + 
+            turing
+</button>,
+          <button
+            className="button"
+            onClick={[Function]}
+>
+            + 
+            bummer
+</button>,
+          <button
+            className="button"
+            onClick={[Function]}
+>
+            + 
+            forgot
+</button>,
+          <button
+            className="button"
+            onClick={[Function]}
+>
+            + 
+            charger
+</button>,
+          <button
+            className="button"
+            onClick={[Function]}
+>
+            + 
+            dude
+</button>,
+          <button
+            className="button"
+            onClick={[Function]}
+>
+            + 
+            back
+</button>,
+          <button
+            className="button"
+            onClick={[Function]}
+>
+            + 
+            :(
+</button>,
+        ],
+        "className": "trending",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "+ ",
+              "i",
+            ],
+            "className": "button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "+ ",
+            "i",
+          ],
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "+ ",
+              "turing",
+            ],
+            "className": "button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "+ ",
+            "turing",
+          ],
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "+ ",
+              "bummer",
+            ],
+            "className": "button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "+ ",
+            "bummer",
+          ],
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "3",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "+ ",
+              "forgot",
+            ],
+            "className": "button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "+ ",
+            "forgot",
+          ],
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "4",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "+ ",
+              "charger",
+            ],
+            "className": "button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "+ ",
+            "charger",
+          ],
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "5",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "+ ",
+              "dude",
+            ],
+            "className": "button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "+ ",
+            "dude",
+          ],
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "6",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "+ ",
+              "back",
+            ],
+            "className": "button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "+ ",
+            "back",
+          ],
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": "7",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "+ ",
+              ":(",
+            ],
+            "className": "button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "+ ",
+            ":(",
+          ],
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

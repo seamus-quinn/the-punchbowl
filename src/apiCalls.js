@@ -13,6 +13,7 @@ export const fetchArticles = async (domain, pageNumber) => {
       throw Error(response.status)
     }
   } catch (error) {
+    console.log(error, 'error')
     throw Error(error)
   }
 }

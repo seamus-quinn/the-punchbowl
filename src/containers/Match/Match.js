@@ -7,6 +7,7 @@ import mitt from '../../assets/mitt.jpg'
 import x from '../../assets/clear-button.svg'
 
 const Match = (props) => {
+  console.log('woowowowo')
   const { match } = props
   const keywords = match.keywords.map(keyword => {
     return(
