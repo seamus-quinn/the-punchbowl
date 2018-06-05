@@ -144,13 +144,15 @@ describe('Search', () => {
   describe('findArticles', () => {
 
     it('returns an array of articles that contain every word in the keywords array that is passed in in either their title or description ', () => {
-      const mockKeywords = ['bingo', 'bango']; 
-          
+      const mockKeywords = ['trump', 'crestfallen'];
+
       const wrapperInst = wrapper.instance();
 
-      // const result = wrapperInst.findArticles(mockKeywords)
+      const result = wrapperInst.findArticles(mockKeywords)
 
+      const expected = mockProps.articles
 
+      expect(result).toEqual(expected)
     })
 
     describe('populateInputField', () => {
