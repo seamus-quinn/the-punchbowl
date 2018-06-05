@@ -64,6 +64,7 @@ class App extends Component {
         <header className='header'>
           <h1 className='app-title'>the punchBowl</h1>
         </header>
+        <div className='border'></div>  
         <Switch>
           <Route exact path='/' component={ Splash }/>
           <Route exact path='/home' render={() => {
@@ -76,7 +77,6 @@ class App extends Component {
           }}
           />
         </Switch>
-        <div className='border'></div>
       </div>
     );
   }
