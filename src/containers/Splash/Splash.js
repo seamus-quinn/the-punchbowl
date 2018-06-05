@@ -1,10 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Splash = () => {
 
   return (
     <div>
-      sup
+      <NavLink to='/home'>Let's Begin Now</NavLink>
     </div>
   )
 }
