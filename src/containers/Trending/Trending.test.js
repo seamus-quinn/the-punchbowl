@@ -55,7 +55,6 @@ describe('Trending', () => {
       expect(wrapper.state('loading')).toEqual('wow such load')
     })
 
-
     it('sets the state of trendingWords once it receives props', () => {
       wrapper.setState({ trendingWords: [] })
 
