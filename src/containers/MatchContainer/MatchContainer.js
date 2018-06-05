@@ -5,9 +5,12 @@ import './MatchContainer.css'
 
 const MatchContainer = (props) => {
   if (props.matches.length > 0) {
-    const match = props.matches.map(match => {
+    const match = props.matches.map((match, index) => {
       return (
-        <div className='match'>
+        <div 
+          className='match'
+          key={index}
+        >
           <div className='border'></div>      
           <Match match={match} />
           <div className='border'></div>          

@@ -31,7 +31,7 @@ describe('Trending', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('calls populateInputField with correct arguments on click', () => {
+  it('calls populateInputField on click', () => {
 
     wrapper.setState({ ...mockState })
 
@@ -55,17 +55,18 @@ describe('Trending', () => {
       expect(wrapper.state('loading')).toEqual('wow such load')
     })
 
-    it('calls topTen with the correct arguments when correct props are received', () => {
+
+    it('sets the state of trendingWords once it receives props', () => {
+      wrapper.setState({ trendingWords: [] })
 
       wrapper = shallow(<Trending {...mockProps} />)
 
-      helper.topTen = jest.fn();
+      helper.topTen = jest.fn().mockImplementation(() => {
+        return ['i', 'turing', 'bummer', 'forgot', 'charger', 'dude', 'back', ':(']
+      })
 
-      expect(helper.topTen).toHaveBeenCalledWith(mockProps.articles)
-    })
+      expect(wrapper.state('trendingWords')).toEqual(['i', 'turing', 'bummer', 'forgot', 'charger', 'dude', 'back', ':('])
 
-    it('sets the state of trendingWords once it receives props', () => {
-      wrapper.setState({ ...mockState }) 
     })
   })
 
