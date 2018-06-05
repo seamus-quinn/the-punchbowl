@@ -67,8 +67,12 @@ class Search extends Component {
   }
 
   populateInputField = (word) => {
-    const userInput = this.state.userInput + ' ' + word;
-    this.setState({ userInput })
+    if (this.state.userInput === '') {
+      this.setState({ userInput: word })
+    } else {
+      const userInput = this.state.userInput + ' ' + word;
+      this.setState({ userInput })
+    }
   }
 
   clearInputField = (event) => {

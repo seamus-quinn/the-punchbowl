@@ -13,7 +13,7 @@ describe('Trending', () => {
     mockState = {
       trendingWords: ['why', 'did', 'i', 'leave', 'my', 'charger', 'at', 'turing'],
       loading: ''
-    }
+    };
     mockProps = {
       keywords: ['wow', 'such', 'garbage'],
       articles: [
@@ -34,7 +34,7 @@ describe('Trending', () => {
   it('calls populateInputField with correct arguments on click', () => {
 
     wrapper.setState({ ...mockState })
-    
+
     wrapper.find('button').first().simulate('click');
 
     expect(wrapper.props.populateInputField).toHaveBeenCalled();
