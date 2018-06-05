@@ -54,7 +54,7 @@ describe('App', () => {
       expect(wrapperInst.props.populateArticles).toHaveBeenCalledWith(mockData.articles)
     })
 
-    it.only('calls fetchAllArticles if the elapsed time is greater than or equal to 12 hours', async () => {
+    it('calls fetchAllArticles if the elapsed time is greater than or equal to 12 hours', async () => {
       mockData = {
         articles: [
           { title: 'Roseanne pops an ambien and calls Trump a peach' },
