@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { connect } from 'react-redux';
+import { Route, Switch, withRouter } from 'react-router-dom';
+
 
 import './App.css';
 import * as apiCalls from '../../apiCalls';
@@ -8,6 +10,7 @@ import * as helper from '../../helper'
 import { populateArticles } from '../../actions';
 import Search from '../Search/Search'
 import MatchContainer from '../MatchContainer/MatchContainer'
+import Splash from '../Splash/Splash'
 
 class App extends Component {
   constructor(props) {
@@ -61,9 +64,19 @@ class App extends Component {
         <header className='header'>
           <h1 className='app-title'>the punchBowl</h1>
         </header>
+        <Switch>
+          <Route exact path='/' component={ Splash }/>
+          <Route exact path='/home' render={() => {
+            return(
+              <div>
+                <Search />
+                <MatchContainer />
+              </div>
+            )
+          }}
+          />
+        </Switch>
         <div className='border'></div>
-        <Search />
-        <MatchContainer />
       </div>
     );
   }
@@ -91,4 +104,4 @@ export {
   mapDispatchToProps
 }
 
-export default connect(null, mapDispatchToProps)(App)
+export default withRouter(connect(null, mapDispatchToProps)(App))
