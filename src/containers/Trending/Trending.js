@@ -17,28 +17,18 @@ class Trending extends Component {
     if (!this.props.articles.length) {
       this.setState({ loading: 'wow such load' })
     }
-    const trendingWords = this.topTen(this.props.articles)
+    const trendingWords = helper.topTen(this.props.articles)
     this.setState({ trendingWords })
-  }
-
-  topTen = (arr) => {
-    const words = helper.makeWordsArr(arr)
-    const wordObj = helper.countWords(words);
-    const keys = Object.keys(wordObj);
-    const sorted = keys.sort((a, b) => {
-      return wordObj[b] - wordObj[a];
-    })
-    const cleaned = helper.cleanWords(sorted)
-    return cleaned.slice(0, 10)
   }
 
   render() {
     const { trendingWords, loading } = this.state;
-    const trending = trendingWords.map(word => {
+    const trending = trendingWords.map((word, index) => {
       return(
         <button 
           className='button'
           onClick={() => this.props.populateInputField(word)}
+          key={index}
         >+ {word}</button>
       ) 
     })
@@ -55,7 +45,8 @@ const mapStateToProps = (state) => ({
 })
 
 export {
-  Trending
+  Trending,
+  mapStateToProps
 }
 
 export default connect(mapStateToProps)(Trending)

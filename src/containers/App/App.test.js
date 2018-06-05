@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
-// import from './App'
-import { App, mapDispatchToProps } from './App'
+import { App, mapDispatchToProps } from './App';
+import * as helper from '../../helper';
+import * as firebase from 'firebase'
 
 describe('App', () => {
   let wrapper
@@ -25,6 +25,8 @@ describe('App', () => {
   })
 
   describe('fetchAllArticles', () => {
+
+    it()
 
   })
 
@@ -54,8 +56,27 @@ describe('App', () => {
       expect(wrapperInst.props.populateArticles).toHaveBeenCalledWith(mockData.articles)
     })
 
-    it('calls fetchAllArticles if the elapsed time is greater than or equal to 12 hours', () => {
+    it('calls fetchAllArticles if the elapsed time is greater than or equal to 12 hours', async () => {
+      mockData = {
+        articles: [
+          { title: 'Roseanne pops an ambien and calls Trump a peach' },
+          { title: 'J.R. Smith forgets to put on his shoes before Game 2' }
+        ],
+        timeStamp: 1
+      }
+      const wrapperInst = wrapper.instance();
 
+      Date.now = jest.fn().mockImplementation(() => 43200020)
+
+      mockData.val = jest.fn().mockImplementation(() => mockData)
+
+      wrapperInst.fetchAllArticles = jest.fn();
+      helper.flattenArrays = jest.fn();
+      firebase.database().ref('/').set = jest.fn()
+
+      await wrapperInst.checkFirebase(mockData)
+
+      expect(wrapperInst.fetchAllArticles).toHaveBeenCalled();
     })
 
     it('flattens the arrays received from fetchAllArticles if the the elapsed time is greater than or equal to 12 hours', () => {

@@ -8,18 +8,21 @@ import x from '../../assets/clear-button.svg'
 
 const Match = (props) => {
   const { match } = props
-  const keywords = match.keywords.map(keyword => {
+  const keywords = match.keywords.map((keyword, index) => {
     return(
-      <h1>{keyword}</h1>
+      <h1 key={index}>{keyword}</h1>
     )
   })
 
-  const articles = match.articles.map(article => {
+  const articles = match.articles.map((article, index) => {
     const source = helper.cleanSource(article.source.name);
     const imageSource = helper.cleanImageUrl(article.urlToImage)
 
     return (
-      <div className='article-card'>
+      <div 
+      className='article-card'
+      key={index}
+      >
         <div className='image-container'>
           <img src={!imageSource ? mitt : article.urlToImage} alt='' className='image' />
         </div>
@@ -69,5 +72,10 @@ const Match = (props) => {
 const mapDispatchToProps = (dispatch) => ({
   deleteMatch: (match) => dispatch(deleteMatch(match))
 })
+
+export {
+  Match,
+  mapDispatchToProps
+}
 
 export default connect(null, mapDispatchToProps)(Match)

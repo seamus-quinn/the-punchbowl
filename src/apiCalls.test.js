@@ -1,25 +1,32 @@
 import * as apiCalls from './apiCalls';
-import * as mockData from './mockData';
-import apiKey from './apiKey'
+import apiKey from './apiKey';
+import * as helper from './helper'
 
 describe('fetchArticles', () => {
   let mockDomain;
   let mockPageNumber;
   let mockUrl;
+  let mockData;
 
   beforeEach(() => {
-    mockDomain = 'npr.org';
+    mockDomain = 'wow.com';
     mockPageNumber = 1;
+    mockData = [
+      {
+        article: 'wow'
+      }
+    ]
     mockUrl = `https://newsapi.org/v2/everything?domains=${mockDomain}&apiKey=${apiKey}&page=${mockPageNumber}`;
     window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(mockData.npr),
+        json: () => Promise.resolve(mockData),
       })
     );
+    helper.cleanArticles = jest.fn().mockImplementation(() => mockData)
   })
 
-  it('calls fetch with the correct articles', async () => {
+  it('calls fetch with the correct arguments', async () => {
 
     await apiCalls.fetchArticles(mockDomain, mockPageNumber);
 
@@ -27,7 +34,7 @@ describe('fetchArticles', () => {
   })
 
   it('returns the correct data', async () => {
-    const expected = mockData.npr;
+    const expected = mockData
     const result = await apiCalls.fetchArticles(mockDomain, mockPageNumber);
 
     expect(result).toEqual(expected)

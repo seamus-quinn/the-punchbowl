@@ -5,6 +5,7 @@ import {
   mapStateToProps,
   mapDispatchToProps
 } from './Search';
+import * as helper from '../../helper'
 
 describe('Search', () => {
 
@@ -49,7 +50,11 @@ describe('Search', () => {
       const mockEvent = { preventDefault: jest.fn() };
       wrapperInst.createKeywords = jest.fn();
       wrapperInst.findArticles = jest.fn();
-      wrapperInst.createMatchObject = jest.fn();
+      helper.createMatchObject = jest.fn().mockImplementation(() => {
+        return {
+          articles: ['now i am at camerons house']
+        }
+      });
 
       wrapperInst.handleSubmit(mockEvent);
 
@@ -62,7 +67,11 @@ describe('Search', () => {
       const mockEvent = { preventDefault: jest.fn() };
       wrapperInst.createKeywords = jest.fn().mockImplementation(() => mockKeyWords);
       wrapperInst.findArticles = jest.fn();
-      wrapperInst.createMatchObject = jest.fn();
+      helper.createMatchObject = jest.fn().mockImplementation(() => {
+        return {
+          articles: ['now i am at camerons house']
+        }
+      });
 
       wrapperInst.handleSubmit(mockEvent);
 
@@ -82,18 +91,21 @@ describe('Search', () => {
       ];
       wrapperInst.createKeywords = jest.fn().mockImplementation(() => mockKeyWords);
       wrapperInst.findArticles = jest.fn().mockImplementation(() => mockArticles);
-      wrapperInst.createMatchObject = jest.fn();
+      helper.createMatchObject = jest.fn().mockImplementation(() => {
+        return {
+          articles: ['now i am at camerons house']
+        }
+      });
 
       wrapperInst.handleSubmit(mockEvent);
 
-      expect(wrapperInst.createMatchObject).toHaveBeenCalledWith(mockKeyWords, mockArticles);
+      expect(helper.createMatchObject).toHaveBeenCalledWith(mockKeyWords, mockArticles);
 
     })
 
     it('calls this.props.createMatch with the correct arguments', () => {
       const wrapperInst = wrapper.instance();
-      const mockMatches = [
-        {
+      const mockMatches = {
           keywords: ['wow', 'much', 'fun'],
           articles: [
             {
@@ -102,11 +114,11 @@ describe('Search', () => {
             }
           ]
         }
-      ]
+      wrapperInst.setState({ userInput: 'wow'})
       const mockEvent = { preventDefault: jest.fn() };
       wrapperInst.createKeywords = jest.fn();
       wrapperInst.findArticles = jest.fn();
-      wrapperInst.createMatchObject = jest.fn().mockImplementation(() => mockMatches);
+      helper.createMatchObject = jest.fn().mockImplementation(() => mockMatches);
 
       wrapperInst.handleSubmit(mockEvent);
 
@@ -129,41 +141,49 @@ describe('Search', () => {
     })
   })
 
-  describe('createMatchObject', () => {
-
-    it('returns an object with a key of keywords and a key of articles', () => {
-      const mockKeywords = ['bingo', 'bango', 'bongo'];
-      const mockArticles = [
-        {
-          title: 'Sushi prices skyrocket as Trump bans tuna, deeming it Un-American',
-          description: 'I cannot believe it says crestfallen Seamus Quinn...'
-        }
-      ]
-
-      const result = wrapper.instance().createMatchObject(mockKeywords, mockArticles);
-
-      const expected = {
-        keywords: mockKeywords,
-        articles: mockArticles
-      }
-
-      expect(result).toEqual(expected)
-
-    })
-  })
-
   describe('findArticles', () => {
 
     it('returns an array of articles that contain every word in the keywords array that is passed in in either their title or description ', () => {
-      const mockKeywords = ['bingo', 'bango']; 
-          
+      const mockKeywords = ['trump', 'crestfallen'];
+
       const wrapperInst = wrapper.instance();
 
-      // const result = wrapperInst.findArticles(mockKeywords)
+      const result = wrapperInst.findArticles(mockKeywords)
 
+      const expected = mockProps.articles
 
+      expect(result).toEqual(expected)
     })
 
+    describe('populateInputField', () => {
+
+      it('sets state to be the word passed in if input field is empty', () => {
+
+        wrapper.instance().populateInputField('wow');
+
+        expect(wrapper.state('userInput')).toEqual('wow')
+      })
+
+      it('sets state to be whatever is already there plus the new word passed in if input field has words in it', () => {
+        wrapper.setState({userInput: 'hahaha'})
+        wrapper.instance().populateInputField('wow')
+
+        expect(wrapper.state('userInput')).toEqual('hahaha wow')
+      })
+    })
+
+    describe('clearInputField', () => {
+
+      it('sets userInput to be an empty string', () => {
+        const mockEvent = {
+          preventDefault: jest.fn()
+        }
+
+        wrapper.setState({ userInput: 'boston baked beans'})
+        wrapper.instance().clearInputField(mockEvent);
+        expect(wrapper.state('userInput')).toEqual('')
+      })
+    })
 
   })
 
