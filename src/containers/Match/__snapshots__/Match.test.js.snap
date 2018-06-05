@@ -1,3 +1,1079 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Match matches the snapshot 1`] = `undefined`;
+exports[`Match matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Match
+    deleteMatch={[Function]}
+    match={
+        Object {
+            "articles": Array [
+              Object {
+                "description": "Wow much mullets worn by enthusiasts",
+                "source": Object {
+                  "name": "I am Justice Beavers",
+                },
+                "title": "Garbage Man eats Sushi",
+              },
+            ],
+            "keywords": Array [
+              "garbage",
+              "mullet",
+              "sushi",
+            ],
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="keyword-card"
+>
+          <div
+                    className="keyword-text"
+          >
+                    <h1>
+                              Matches:
+                    </h1>
+                    <div
+                              className="keyword-list"
+                    >
+                              <h1>
+                                        garbage
+                              </h1>
+                              <h1>
+                                        mullet
+                              </h1>
+                              <h1>
+                                        sushi
+                              </h1>
+                    </div>
+          </div>
+          <button
+                    className="match-delete-button"
+                    onClick={[Function]}
+          >
+                    <img
+                              alt=""
+                              className="x"
+                              src="clear-button.svg"
+                    />
+          </button>
+          <p
+                    className="article-counter"
+          >
+                    Number of Articles: 
+                    1
+          </p>
+</div>,
+        <div
+          className="article-container"
+>
+          <div
+                    className="article-card"
+          >
+                    <div
+                              className="image-container"
+                    >
+                              <img
+                                        alt=""
+                                        className="image"
+                                        src="mitt.jpg"
+                              />
+                    </div>
+                    <div
+                              className="card-info"
+                    >
+                              <h1
+                                        className="article-title"
+                              >
+                                        Garbage Man eats Sushi
+                              </h1>
+                              <p
+                                        className="article-description"
+                              >
+                                        Wow much mullets worn by enthusiasts
+                              </p>
+                              <p
+                                        className="article-source"
+                              >
+                                        Source: 
+                                        I am Justice Beavers
+                              </p>
+                              <a
+                                        className="link-to-article"
+                                        href={undefined}
+                                        target="_blank"
+                              >
+                                        View Article
+                              </a>
+                    </div>
+          </div>
+</div>,
+      ],
+      "className": "track",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="keyword-text"
+>
+              <h1>
+                            Matches:
+              </h1>
+              <div
+                            className="keyword-list"
+              >
+                            <h1>
+                                          garbage
+                            </h1>
+                            <h1>
+                                          mullet
+                            </h1>
+                            <h1>
+                                          sushi
+                            </h1>
+              </div>
+</div>,
+            <button
+              className="match-delete-button"
+              onClick={[Function]}
+>
+              <img
+                            alt=""
+                            className="x"
+                            src="clear-button.svg"
+              />
+</button>,
+            <p
+              className="article-counter"
+>
+              Number of Articles: 
+              1
+</p>,
+          ],
+          "className": "keyword-card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h1>
+                  Matches:
+</h1>,
+                <div
+                  className="keyword-list"
+>
+                  <h1>
+                                    garbage
+                  </h1>
+                  <h1>
+                                    mullet
+                  </h1>
+                  <h1>
+                                    sushi
+                  </h1>
+</div>,
+              ],
+              "className": "keyword-text",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Matches:",
+                },
+                "ref": null,
+                "rendered": "Matches:",
+                "type": "h1",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h1>
+                      garbage
+</h1>,
+                    <h1>
+                      mullet
+</h1>,
+                    <h1>
+                      sushi
+</h1>,
+                  ],
+                  "className": "keyword-list",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "0",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "garbage",
+                    },
+                    "ref": null,
+                    "rendered": "garbage",
+                    "type": "h1",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "1",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "mullet",
+                    },
+                    "ref": null,
+                    "rendered": "mullet",
+                    "type": "h1",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "2",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "sushi",
+                    },
+                    "ref": null,
+                    "rendered": "sushi",
+                    "type": "h1",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <img
+                alt=""
+                className="x"
+                src="clear-button.svg"
+/>,
+              "className": "match-delete-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "",
+                "className": "x",
+                "src": "clear-button.svg",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Number of Articles: ",
+                1,
+              ],
+              "className": "article-counter",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Number of Articles: ",
+              1,
+            ],
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="article-card"
+>
+              <div
+                            className="image-container"
+              >
+                            <img
+                                          alt=""
+                                          className="image"
+                                          src="mitt.jpg"
+                            />
+              </div>
+              <div
+                            className="card-info"
+              >
+                            <h1
+                                          className="article-title"
+                            >
+                                          Garbage Man eats Sushi
+                            </h1>
+                            <p
+                                          className="article-description"
+                            >
+                                          Wow much mullets worn by enthusiasts
+                            </p>
+                            <p
+                                          className="article-source"
+                            >
+                                          Source: 
+                                          I am Justice Beavers
+                            </p>
+                            <a
+                                          className="link-to-article"
+                                          href={undefined}
+                                          target="_blank"
+                            >
+                                          View Article
+                            </a>
+              </div>
+</div>,
+          ],
+          "className": "article-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="image-container"
+>
+                  <img
+                                    alt=""
+                                    className="image"
+                                    src="mitt.jpg"
+                  />
+</div>,
+                <div
+                  className="card-info"
+>
+                  <h1
+                                    className="article-title"
+                  >
+                                    Garbage Man eats Sushi
+                  </h1>
+                  <p
+                                    className="article-description"
+                  >
+                                    Wow much mullets worn by enthusiasts
+                  </p>
+                  <p
+                                    className="article-source"
+                  >
+                                    Source: 
+                                    I am Justice Beavers
+                  </p>
+                  <a
+                                    className="link-to-article"
+                                    href={undefined}
+                                    target="_blank"
+                  >
+                                    View Article
+                  </a>
+</div>,
+              ],
+              "className": "article-card",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <img
+                    alt=""
+                    className="image"
+                    src="mitt.jpg"
+/>,
+                  "className": "image-container",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "",
+                    "className": "image",
+                    "src": "mitt.jpg",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h1
+                      className="article-title"
+>
+                      Garbage Man eats Sushi
+</h1>,
+                    <p
+                      className="article-description"
+>
+                      Wow much mullets worn by enthusiasts
+</p>,
+                    <p
+                      className="article-source"
+>
+                      Source: 
+                      I am Justice Beavers
+</p>,
+                    <a
+                      className="link-to-article"
+                      href={undefined}
+                      target="_blank"
+>
+                      View Article
+</a>,
+                  ],
+                  "className": "card-info",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Garbage Man eats Sushi",
+                      "className": "article-title",
+                    },
+                    "ref": null,
+                    "rendered": "Garbage Man eats Sushi",
+                    "type": "h1",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Wow much mullets worn by enthusiasts",
+                      "className": "article-description",
+                    },
+                    "ref": null,
+                    "rendered": "Wow much mullets worn by enthusiasts",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "Source: ",
+                        "I am Justice Beavers",
+                      ],
+                      "className": "article-source",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Source: ",
+                      "I am Justice Beavers",
+                    ],
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "View Article",
+                      "className": "link-to-article",
+                      "href": undefined,
+                      "target": "_blank",
+                    },
+                    "ref": null,
+                    "rendered": "View Article",
+                    "type": "a",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="keyword-card"
+>
+            <div
+                        className="keyword-text"
+            >
+                        <h1>
+                                    Matches:
+                        </h1>
+                        <div
+                                    className="keyword-list"
+                        >
+                                    <h1>
+                                                garbage
+                                    </h1>
+                                    <h1>
+                                                mullet
+                                    </h1>
+                                    <h1>
+                                                sushi
+                                    </h1>
+                        </div>
+            </div>
+            <button
+                        className="match-delete-button"
+                        onClick={[Function]}
+            >
+                        <img
+                                    alt=""
+                                    className="x"
+                                    src="clear-button.svg"
+                        />
+            </button>
+            <p
+                        className="article-counter"
+            >
+                        Number of Articles: 
+                        1
+            </p>
+</div>,
+          <div
+            className="article-container"
+>
+            <div
+                        className="article-card"
+            >
+                        <div
+                                    className="image-container"
+                        >
+                                    <img
+                                                alt=""
+                                                className="image"
+                                                src="mitt.jpg"
+                                    />
+                        </div>
+                        <div
+                                    className="card-info"
+                        >
+                                    <h1
+                                                className="article-title"
+                                    >
+                                                Garbage Man eats Sushi
+                                    </h1>
+                                    <p
+                                                className="article-description"
+                                    >
+                                                Wow much mullets worn by enthusiasts
+                                    </p>
+                                    <p
+                                                className="article-source"
+                                    >
+                                                Source: 
+                                                I am Justice Beavers
+                                    </p>
+                                    <a
+                                                className="link-to-article"
+                                                href={undefined}
+                                                target="_blank"
+                                    >
+                                                View Article
+                                    </a>
+                        </div>
+            </div>
+</div>,
+        ],
+        "className": "track",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="keyword-text"
+>
+                <h1>
+                                Matches:
+                </h1>
+                <div
+                                className="keyword-list"
+                >
+                                <h1>
+                                                garbage
+                                </h1>
+                                <h1>
+                                                mullet
+                                </h1>
+                                <h1>
+                                                sushi
+                                </h1>
+                </div>
+</div>,
+              <button
+                className="match-delete-button"
+                onClick={[Function]}
+>
+                <img
+                                alt=""
+                                className="x"
+                                src="clear-button.svg"
+                />
+</button>,
+              <p
+                className="article-counter"
+>
+                Number of Articles: 
+                1
+</p>,
+            ],
+            "className": "keyword-card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h1>
+                    Matches:
+</h1>,
+                  <div
+                    className="keyword-list"
+>
+                    <h1>
+                                        garbage
+                    </h1>
+                    <h1>
+                                        mullet
+                    </h1>
+                    <h1>
+                                        sushi
+                    </h1>
+</div>,
+                ],
+                "className": "keyword-text",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Matches:",
+                  },
+                  "ref": null,
+                  "rendered": "Matches:",
+                  "type": "h1",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h1>
+                        garbage
+</h1>,
+                      <h1>
+                        mullet
+</h1>,
+                      <h1>
+                        sushi
+</h1>,
+                    ],
+                    "className": "keyword-list",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": "0",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "garbage",
+                      },
+                      "ref": null,
+                      "rendered": "garbage",
+                      "type": "h1",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "1",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "mullet",
+                      },
+                      "ref": null,
+                      "rendered": "mullet",
+                      "type": "h1",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "2",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "sushi",
+                      },
+                      "ref": null,
+                      "rendered": "sushi",
+                      "type": "h1",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <img
+                  alt=""
+                  className="x"
+                  src="clear-button.svg"
+/>,
+                "className": "match-delete-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "",
+                  "className": "x",
+                  "src": "clear-button.svg",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Number of Articles: ",
+                  1,
+                ],
+                "className": "article-counter",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Number of Articles: ",
+                1,
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="article-card"
+>
+                <div
+                                className="image-container"
+                >
+                                <img
+                                                alt=""
+                                                className="image"
+                                                src="mitt.jpg"
+                                />
+                </div>
+                <div
+                                className="card-info"
+                >
+                                <h1
+                                                className="article-title"
+                                >
+                                                Garbage Man eats Sushi
+                                </h1>
+                                <p
+                                                className="article-description"
+                                >
+                                                Wow much mullets worn by enthusiasts
+                                </p>
+                                <p
+                                                className="article-source"
+                                >
+                                                Source: 
+                                                I am Justice Beavers
+                                </p>
+                                <a
+                                                className="link-to-article"
+                                                href={undefined}
+                                                target="_blank"
+                                >
+                                                View Article
+                                </a>
+                </div>
+</div>,
+            ],
+            "className": "article-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="image-container"
+>
+                    <img
+                                        alt=""
+                                        className="image"
+                                        src="mitt.jpg"
+                    />
+</div>,
+                  <div
+                    className="card-info"
+>
+                    <h1
+                                        className="article-title"
+                    >
+                                        Garbage Man eats Sushi
+                    </h1>
+                    <p
+                                        className="article-description"
+                    >
+                                        Wow much mullets worn by enthusiasts
+                    </p>
+                    <p
+                                        className="article-source"
+                    >
+                                        Source: 
+                                        I am Justice Beavers
+                    </p>
+                    <a
+                                        className="link-to-article"
+                                        href={undefined}
+                                        target="_blank"
+                    >
+                                        View Article
+                    </a>
+</div>,
+                ],
+                "className": "article-card",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <img
+                      alt=""
+                      className="image"
+                      src="mitt.jpg"
+/>,
+                    "className": "image-container",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "",
+                      "className": "image",
+                      "src": "mitt.jpg",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h1
+                        className="article-title"
+>
+                        Garbage Man eats Sushi
+</h1>,
+                      <p
+                        className="article-description"
+>
+                        Wow much mullets worn by enthusiasts
+</p>,
+                      <p
+                        className="article-source"
+>
+                        Source: 
+                        I am Justice Beavers
+</p>,
+                      <a
+                        className="link-to-article"
+                        href={undefined}
+                        target="_blank"
+>
+                        View Article
+</a>,
+                    ],
+                    "className": "card-info",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Garbage Man eats Sushi",
+                        "className": "article-title",
+                      },
+                      "ref": null,
+                      "rendered": "Garbage Man eats Sushi",
+                      "type": "h1",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Wow much mullets worn by enthusiasts",
+                        "className": "article-description",
+                      },
+                      "ref": null,
+                      "rendered": "Wow much mullets worn by enthusiasts",
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Source: ",
+                          "I am Justice Beavers",
+                        ],
+                        "className": "article-source",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Source: ",
+                        "I am Justice Beavers",
+                      ],
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "View Article",
+                        "className": "link-to-article",
+                        "href": undefined,
+                        "target": "_blank",
+                      },
+                      "ref": null,
+                      "rendered": "View Article",
+                      "type": "a",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

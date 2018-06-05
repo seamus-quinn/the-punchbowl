@@ -26,6 +26,8 @@ describe('App', () => {
 
   describe('fetchAllArticles', () => {
 
+    it()
+
   })
 
   describe('checkFirebase', () => {
