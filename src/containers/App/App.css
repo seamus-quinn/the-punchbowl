@@ -1,15 +1,15 @@
 .App {
   text-align: center;
-  background: rgb(84,95,164);
-  background: linear-gradient(214deg, rgba(84,95,164,1) 0%, rgba(114,173,207,1) 53%);
-  height: 100%;
-  display: grid;
-  grid-template-rows: 100px 170px 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0
 }
 
 .header {
-  height: 100px;
+  height: 80px;
+  width: 100%;
   color: #fff;
   display: flex;
   justify-content: flex-end;
@@ -25,9 +25,9 @@
 
 .border {
   height: 1px;
+  width: 89%;
   background: rgb(103,117,176);
   background: linear-gradient(214deg, rgba(103,117,176,1) 0%, rgb(153, 195, 231) 100%);
-  margin: 0 3%;
 }
 
 
