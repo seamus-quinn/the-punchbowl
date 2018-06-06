@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Splash matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Splash />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1
+          className="splash-header"
+>
+          Welcome to the punchBowl
+</h1>,
+        <p
+          className="splash-body"
+>
+          The punchBowl is an app that aims to remove the filters from your political reality.  Use the search bar to find thousands of current articles from the nation's top news agencies, displayed side by side.  Unsure of what to search for? Just select any of the trending words that appear underneath the search bar.  To get started click the button below!
+</p>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          className="splash-link"
+          to="/home"
+>
+          Get Started
+</NavLink>,
+      ],
+      "className": "splash-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Welcome to the punchBowl",
+          "className": "splash-header",
+        },
+        "ref": null,
+        "rendered": "Welcome to the punchBowl",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "The punchBowl is an app that aims to remove the filters from your political reality.  Use the search bar to find thousands of current articles from the nation's top news agencies, displayed side by side.  Unsure of what to search for? Just select any of the trending words that appear underneath the search bar.  To get started click the button below!",
+          "className": "splash-body",
+        },
+        "ref": null,
+        "rendered": "The punchBowl is an app that aims to remove the filters from your political reality.  Use the search bar to find thousands of current articles from the nation's top news agencies, displayed side by side.  Unsure of what to search for? Just select any of the trending words that appear underneath the search bar.  To get started click the button below!",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Get Started",
+          "className": "splash-link",
+          "to": "/home",
+        },
+        "ref": null,
+        "rendered": "Get Started",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="splash-header"
+>
+            Welcome to the punchBowl
+</h1>,
+          <p
+            className="splash-body"
+>
+            The punchBowl is an app that aims to remove the filters from your political reality.  Use the search bar to find thousands of current articles from the nation's top news agencies, displayed side by side.  Unsure of what to search for? Just select any of the trending words that appear underneath the search bar.  To get started click the button below!
+</p>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="splash-link"
+            to="/home"
+>
+            Get Started
+</NavLink>,
+        ],
+        "className": "splash-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Welcome to the punchBowl",
+            "className": "splash-header",
+          },
+          "ref": null,
+          "rendered": "Welcome to the punchBowl",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "The punchBowl is an app that aims to remove the filters from your political reality.  Use the search bar to find thousands of current articles from the nation's top news agencies, displayed side by side.  Unsure of what to search for? Just select any of the trending words that appear underneath the search bar.  To get started click the button below!",
+            "className": "splash-body",
+          },
+          "ref": null,
+          "rendered": "The punchBowl is an app that aims to remove the filters from your political reality.  Use the search bar to find thousands of current articles from the nation's top news agencies, displayed side by side.  Unsure of what to search for? Just select any of the trending words that appear underneath the search bar.  To get started click the button below!",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Get Started",
+            "className": "splash-link",
+            "to": "/home",
+          },
+          "ref": null,
+          "rendered": "Get Started",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

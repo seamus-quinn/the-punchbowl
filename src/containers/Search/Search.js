@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { createMatch } from '../../actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import './Search.css';
+import { createMatch } from '../../actions';
 import arrow from '../../assets/right-arrow.svg';
 import x from '../../assets/clear-button.svg'
 import Trending from '../Trending/Trending'
 import * as helper from '../../helper';
-
 
 class Search extends Component {
   constructor(props) {
@@ -124,6 +125,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   createMatch: (matches) => dispatch(createMatch(matches)),
 })
+
+Search.propTypes = {
+  createMatch: PropTypes.func,
+  articles: PropTypes.array
+}
 
 export {
   Search,

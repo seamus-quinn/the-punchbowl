@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
+
 import './Match.css';
 import { deleteMatch } from '../../actions';
 import * as helper from '../../helper';
@@ -72,6 +74,11 @@ const Match = (props) => {
 const mapDispatchToProps = (dispatch) => ({
   deleteMatch: (match) => dispatch(deleteMatch(match))
 })
+
+Match.propTypes = {
+  deleteMatch: PropTypes.func,
+  match: PropTypes.object
+}
 
 export {
   Match,
