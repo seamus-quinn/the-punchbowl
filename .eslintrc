@@ -88,7 +88,6 @@
             80
         ],
         "no-duplicate-imports": "error",
-        "id-length": "error",
         "id-blacklist": [
             "error",
             "err",
