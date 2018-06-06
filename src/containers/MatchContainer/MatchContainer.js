@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
+
 import Match from '../Match/Match';
 import './MatchContainer.css'
 
@@ -33,6 +35,10 @@ const MatchContainer = (props) => {
 const mapStateToProps = (state) => ({
   matches: state.matches
 })
+
+MatchContainer.propTypes = {
+  matches: PropTypes.any
+}
 
 export {
   MatchContainer,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 
 import './App.css';
 import * as apiCalls from '../../apiCalls';
@@ -97,6 +97,10 @@ const config = {
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config)
+}
+
+App.propTypes = {
+  populateArticles: PropTypes.func
 }
 
 export {

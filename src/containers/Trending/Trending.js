@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import * as helper from '../../helper';
 import './Trending.css'
 
@@ -43,6 +45,10 @@ class Trending extends Component {
 const mapStateToProps = (state) => ({
   articles: state.articles
 })
+
+Trending.propTypes = {
+  articles: PropTypes.array
+}
 
 export {
   Trending,
