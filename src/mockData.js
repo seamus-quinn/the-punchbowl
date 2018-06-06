@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const nyTimes = {
   "status": "ok",
   "totalResults": 12205,
