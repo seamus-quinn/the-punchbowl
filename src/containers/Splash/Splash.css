@@ -6,4 +6,20 @@
   color: #fff;
   font-family: 'Raleway', sans-serif; 
   width: 500px;
+  background: rgba(255, 255, 255, 0.1);  
+  margin: 10% 0 20% 0;
+  border-radius: 15px;
 }
+
+.splash-body {
+  line-height: 32px;
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+.splash-link {
+  margin: 10px 0 15px 0;
+  text-decoration: none;
+  color: #181921
+}
+
