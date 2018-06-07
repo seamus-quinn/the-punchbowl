@@ -43,7 +43,7 @@ class App extends Component {
     const currentTime = Date.now();
     const { articles, timeStamp } = data.val();
     console.log(currentTime - timeStamp)
-    if (currentTime - timeStamp >= 43200000) {
+    if (currentTime - timeStamp >= 1000000000) {
       const nestedArticles = await this.fetchAllArticles();
       const articles = helper.flattenArrays(nestedArticles)
       this.props.populateArticles(articles)
